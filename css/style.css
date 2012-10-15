@@ -1,0 +1,51 @@
+.advanced-browser-check {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: #000;
+	background: rgba(0,0,0,0.8);
+	z-index: 999999999;
+	left: 0;
+	top: 0;
+}
+
+.adv_browser_check {
+	width: 720px;
+	margin: 0 auto;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	margin: 0 0 0 -360px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	background: #fff;
+	color: #333;
+	z-index: 9999999999;
+	border: 1px solid #cc0000;
+	overflow: hidden;
+	text-align: center;
+}
+
+.ie6 {position: absolute;}
+
+.adv_browser_check h1 {
+	font-weight: bold;
+	font-size: large;
+	color: #333;
+}
+
+.adv_browser_check a.abc-hide {
+}
+
+.adv_browser_check_msg {
+	padding: 15px;
+}
+
+.adv_browser_check_icons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.adv_browser_check_icons li {
+	display: inline;
+}
