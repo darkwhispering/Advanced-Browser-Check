@@ -11,6 +11,7 @@ Author URI: http://www.darkwhispering.com
 // Check if the file is loaded via AJAX
 if($_POST['ajax']) {
 	if(!defined('ABSPATH')) require_once("../../../wp-load.php");
+	include_once('init.php');
 	include_once('output.php');
 } else {
 	include_once('init.php');

@@ -1,12 +1,16 @@
 <?php
 // ========================
-// = Output			 =
+// = Output			 	  =
 // ========================
 class abc_output {
 
 	function html() {
 		$user_browser = $this->getBrowser();
-		$abc_options = get_option('advanced-browser-check');
+		// $abc_options = get_option('advanced-browser-check');
+		$abc_options = abc_setting_values();
+
+		// print_r($abc_options);
+
 		$check_browsers = $abc_options['check_browser'];
 		$show_browsers = $abc_options['show_browser'];
 		$title = $abc_options['title'];

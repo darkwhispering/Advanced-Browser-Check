@@ -8,133 +8,133 @@ class abc_settings {
 		if (!current_user_can('manage_options'))  {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
-
-		$title = 'You are using a web browser not supported by this website!';
-
-		$message = 'You are using a web browser that is not supported by this website. This means that some function may not work as supposed which can result in strange behaviors when browsing around. Use or upgrade/install on of the following browsers to take full advantage of this website. 
-
-Thank you!';
-
-		$abc_default_values = array(
-			'title' => $title,
-			'msg' => $message,
-			'hide' => '',
-			'show_browser' => array(
-				'ie' 	=> '',
-				'ff' 	=> 'http://www.mozilla.com/en-US/firefox/all.html',
-				'safari' 	=> '',
-				'opera' 	=> '',
-				'chrome' 	=> 'https://www.google.com/chrome'
-			),
-			'check_browser' => array(
-				'ie' 	=> '8',
-				'ff' 	=> '12',
-				'safari' 	=> '4',
-				'opera' 	=> '10',
-				'chrome' 	=> '20'
-			)
-		);
-
-		add_option('advanced-browser-check',$abc_default_values);
-		$abc_default_value = NULL;
+		$abc = abc_setting_values();
 
 	?>
 		<div class="wrap abc-settings">
 			<div class="icon32" id="icon-options-general"><br></div>
-			<h2>Advanced Browser Check</h2>
-			
-			<?php if(!empty($_POST['submit'])) : ?>
-				<?php $abc_new_values = $this->abc_save_settings($_POST); ?>
-				<div class="updated">
-					Your settings has been saved!
-				</div>
-			<?php endif;
+			<h2><?php echo __('Advanced Browser Check'); ?></h2>
 
-			$abc = get_option('advanced-browser-check'); 
+			<form method="post" action="options.php">
+                <?php wp_nonce_field('update-options'); ?>
 
-			if(!empty($abc_new_values)) {
-				$abc = $abc_new_values;
-			}
-			?>
-
-			<?php
-				$referer = wp_get_referer();
-				$referer = !empty($referer) ? wp_get_referer() : '/wp-admin/options-general.php?page=advanced-browser-check';
-			?>
-			<form method="post" action="<?php echo $referer; ?>">
-			<!-- <form method="post" action="/wp-admin/options-general.php?page=advanced-browser-check"> -->
-				<?php //wp_nonce_field('update-options'); ?>
-
-				<h2><?php echo __('Title and Message'); ?></h2>
+				<table class="form-table abc-settings">
+                    <tbody>
+                        <tr valign="top">
+                            <th scope="row">
+                            	<label for="abc_title"><?php echo __('Title'); ?></label>
+                            </th>
+                            <td>
+								<input type="text" class="large-text" id="abc_title" name="abc_title" value="<?php echo $abc['title']; ?>">                
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row">
+                            	<label for="abc_message"><?php echo __('Message'); ?></label>
+                            </th>
+                            <td>
+								<textarea class="large-text" id="abc_message" name="abc_message" cols="50" rows="8"><?php echo $abc['msg']; ?></textarea>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row">
+                            	<?php echo __('Let user hide the popup'); ?>
+                            	<p class="description"><?php echo __('Let the user hide the popup and use your site. The popup will be hidden for 24h only, this is set by a cookie'); ?></p>
+                            </th>
+                            <td>
+                            	<label for="hide">
+									<input type="checkbox" id="abc_hide" name="abc_hide" value="yes" <?php echo !empty($abc['hide']) ? 'checked="checked"' : '' ?> /> Yes
+								</label>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row">
+                            	<?php echo __('Choose browsers to link'); ?>
+                            	<p class="description"><?php echo __('This is the browsers that you can display a link to and tell ypur visitor to use'); ?></p>
+                            </th>
+                            <td>
+                            	<ul>
+                            		<li>
+										<label for="ie">
+											<input type="checkbox" id="ie" name="abc_show[ie]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo !empty($abc['show_browser']['ie']) ? 'checked="checked"' : '' ?> /> <?php echo __('Internet Explorer'); ?>
+										</label>
+									</li>
+									<li>
+										<label for="ff">
+											<input type="checkbox" id="ff" name="abc_show[ff]" value="http://www.mozilla.com/en-US/firefox/all.html" <?php echo !empty($abc['show_browser']['ff']) ? 'checked="checked"' : '' ?> /> <?php echo __('Firefox'); ?>
+										</label>
+									</li>
+									<li>
+										<label for="safari">
+											<input type="checkbox" id="safari" name="abc_show[safari]" value="http://www.apple.com/safari/download/" <?php echo !empty($abc['show_browser']['safari']) ? 'checked="checked"' : '' ?> /> <?php echo __('Safari'); ?>
+										</label>
+									</li>
+									<li>
+										<label for="opera">
+											<input type="checkbox" id="opera" name="abc_show[opera]" value="http://www.opera.com/download/" <?php echo !empty($abc['show_browser']['opera']) ? 'checked="checked"' : '' ?> /> <?php echo __('Opera'); ?>
+										</label>
+									</li>
+									<li>
+										<label for="chrome">
+											<input type="checkbox" id="chrome" name="abc_show[chrome]" value="https://www.google.com/chrome" <?php echo !empty($abc['show_browser']['chrome']) ? 'checked="checked"' : '' ?> /> <?php echo __('Chrome'); ?>
+										</label>
+									</li>
+								</ul>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row">
+                            	<?php echo __('Browsers and versions to check'); ?>
+                            </th>
+                            <td>
+                        		<ul>
+	                            	<?php $browsers = abc_default_browsers(); ?>
+									<?php $browser_selects = ''; ?>
+									<?php foreach($browsers as $key => $browser) : ?>
+										<li>
+											<?php $browser_selects .= $key.','; ?>
+											<select name="abc_check[<?php echo $key; ?>]">
+												<?php
+													switch($key) {
+														case $key == 'ff' :
+															$browser_name = 'Firefox';
+														break;
+														case $key == 'ie' :
+															$browser_name = 'Internet Explorer';
+														break;
+														case $key == 'safari' :
+															$browser_name = 'Safari';
+														break;
+														case $key == 'opera' :
+															$browser_name = 'Opera';
+														break;
+														case $key == 'chrome' :
+															$browser_name = 'Chrome';
+														break;
+													}
+												?>
+												<?php foreach($browser as $b) : ?>
+													<?php if ($b == '0') : ?>
+														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
+															<?php echo __('Do not block ').$browser_name; ?>
+														</option>
+													<?php else : ?>
+														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
+															<?php echo $browser_name .' '. $b; ?> <?php echo __(' or lower'); ?>
+														</option>
+													<?php endif; ?>
+												<?php endforeach; ?>
+											</select>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 				<div class="form-row">
-					<span><?php echo __('Title'); ?></span><br/>
-					<input type="text" class="regular-text" name="abc_title" value="<?php echo $abc['title']; ?>">
-				</div>
-				<div class="form-row">
-					<span><?php echo __('Message'); ?></span><br/>
-					<textarea name="abc_message"><?php echo $abc['msg']; ?></textarea>
-				</div>
-				<h2><?php echo __('Choose browsers to link to below your message'); ?></h2>
-				<div class="form-row">
-					<label for="ie">
-						<input type="checkbox" id="ie" name="abc_show_ie" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo !empty($abc['show_browser']['ie']) ? 'checked="checked"' : '' ?> /> Internet Explorer
-					</label>
-					<label for="ff">
-						<input type="checkbox" id="ff" name="abc_show_ff" value="http://www.mozilla.com/en-US/firefox/all.html" <?php echo !empty($abc['show_browser']['ff']) ? 'checked="checked"' : '' ?> /> Firefox
-					</label>
-					<label for="safari">
-						<input type="checkbox" id="safari" name="abc_show_safari" value="http://www.apple.com/safari/download/" <?php echo !empty($abc['show_browser']['safari']) ? 'checked="checked"' : '' ?> /> Safari
-					</label>
-					<label for="opera">
-						<input type="checkbox" id="opera" name="abc_show_opera" value="http://www.opera.com/download/" <?php echo !empty($abc['show_browser']['opera']) ? 'checked="checked"' : '' ?> /> Opera
-					</label>
-					<label for="chrome">
-						<input type="checkbox" id="chrome" name="abc_show_chrome" value="https://www.google.com/chrome" <?php echo !empty($abc['show_browser']['chrome']) ? 'checked="checked"' : '' ?> /> Chrome
-					</label>
-				</div>
-
-				<h2><?php echo __('Browsers and versions to check for'); ?></h2>
-				<div class="form-row">
-					<?php $browsers = json_decode(file_get_contents(WP_PLUGIN_DIR.'/advanced-browser-check/browser-versions.json')); ?>
-					<?php $browser_selects = ''; ?>
-					<?php foreach($browsers as $key => $browser) : ?>
-						<?php $browser_selects .= $key.','; ?>
-						<select name="abc_check_<?php echo $key; ?>">
-							<?php
-								switch($key) {
-									case $key == 'ff' :
-										$browser_name = 'Firefox';
-									break;
-									case $key == 'ie' :
-										$browser_name = 'Internet Explorer';
-									break;
-									case $key == 'safari' :
-										$browser_name = 'Safari';
-									break;
-									case $key == 'opera' :
-										$browser_name = 'Opera';
-									break;
-									case $key == 'chrome' :
-										$browser_name = 'Chrome';
-									break;
-								}
-							?>
-							<?php foreach($browser as $b) : ?>
-								<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
-									<?php echo $browser_name .' '. $b; ?> or lower
-								</option>
-							<?php endforeach; ?>
-						</select>
-					<?php endforeach; ?>
-				</div>
-				<div class="form-row">
-					<label for="hide">
-						<input type="checkbox" id="hide" name="abc_hide" value="yes" <?php echo !empty($abc['hide']) ? 'checked="checked"' : '' ?> /> User can hide the warning popup module <em>(It will stay hidden for 24h only)</em>
-					</label>
-				</div>
-				<div class="form-row">
-<!-- 					<input type="hidden" name="action" value="update" />
-					<input type="hidden" name="page_options" value="<?php echo $browser_selects; ?>abc_title,abc_message,abc_show_ie,abc_show_ff,abc_show_safari,abc_show_opera,abc_show_chrome,abc_hide" /> -->
+					<input type="hidden" name="action" value="update" />
+					<input type="hidden" name="page_options" value="abc_title,abc_message,abc_hide,abc_show,abc_check" />
 
 					<input type="submit" name="submit" value="Save" class="button-primary save" />
 				</div>
@@ -142,41 +142,7 @@ Thank you!';
 		</div>
 	<?php
 	}
-	
-	private function abc_save_settings($data) {
-
-		$abc_values = array(
-			'title'	=> $data['abc_title'],
-			'msg' 	=> $data['abc_message'],
-			'hide' 	=> $data['abc_hide'],
-			'show_browser' => array(
-				'ie' 		=> $data['abc_show_ie'],
-				'ff' 		=> $data['abc_show_ff'],
-				'safari' 		=> $data['abc_show_safari'],
-				'opera' 		=> $data['abc_show_opera'],
-				'chrome' 		=> $data['abc_show_chrome']
-			),
-			'check_browser' => array(
-				'ie' 		=> $data['abc_check_ie'],
-				'ff' 		=> $data['abc_check_ff'],
-				'safari' 		=> $data['abc_check_safari'],
-				'opera' 		=> $data['abc_check_opera'],
-				'chrome' 		=> $data['abc_check_chrome']
-			)
-		);
-
-		update_option('advanced-browser-check',$abc_values);
-		
-		return $abc_values;
-	}
 }
-
-// Add admin page css
-function abc_admin_css() {
-	wp_register_style('abc_adminstyle', plugins_url('css/admin-style.css', __FILE__));
-	wp_enqueue_style('abc_adminstyle');
-}
-add_action('admin_init','abc_admin_css');
 
 function abc_settings() {
 	$settings_panel = new abc_settings;
