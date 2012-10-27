@@ -3,7 +3,7 @@ Contributors: darkwhispering
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning
 Requires at least: 3.3.0
 Tested up to: 3.4.2
-Stable tag: 2.0.0
+Stable tag: 2.0.2
 
 Tell IE users to change browser? Or is your site for chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 
@@ -23,7 +23,7 @@ You can customize the warning message, choose what browsers download pages you w
 
 If you allow users to hide the popup, a cookie is set that expires after 24h. After 24h, the user will see the popup again with the option to hide it for another 24h.
 
-This plugin is tested and works with the WP Super Cache plugin! It is also tested and working on Wordpress networks/multisite.
+This plugin is tested and works with the WP Super Cache plugin. It is also tested and working on Wordpress Networks.
 
 *There is versions added of browsers that it not yet released as stable versions. This is just to minimize the need of an plugin update in the future when new browsers are released and to let users that use the beta and alpha version to test this plugin with there browsers. I will do my best to keep this plugin updated with the latest versions of avaliable browsers.*
 
@@ -38,6 +38,12 @@ This plugin is tested and works with the WP Super Cache plugin! It is also teste
 2. Backend screenshot
 
 == Changelog ==
+
+= 2.0.2 =
+* Plugin tested and now working on Wordpress Networks
+
+= 2.0.1 =
+* Fixed problem with default values not beeing loaded on a fresh plugin installwith no records in the wp option table
 
 = 2.0.0 =
 * Large part of the plugin is re-written

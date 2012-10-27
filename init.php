@@ -2,6 +2,7 @@
 /**
 * Default settings and settings array used trough out the plugin
 **/
+add_action('init', 'abc_setting_values');
 function abc_setting_values() {
 
 	// If this is the first time the plugin is activated, add all default values to the WP option
@@ -47,12 +48,14 @@ function abc_update() {
 		// Get old settings array
 		$old_settings = get_option('advanced-browser-check');
 
-		// Add the old settings to the new once
-		update_option('abc_title', $old_settings['title']);
-		update_option('abc_message', $old_settings['msg']);
-		update_option('abc_show', $old_settings['show_browser']);
-		update_option('abc_check', $old_settings['check_browser']);
-		update_option('abc_hide', $old_settings['hide']);
+		if ($old_settings) {
+			// Add the old settings to the new once
+			update_option('abc_title', $old_settings['title']);
+			update_option('abc_message', $old_settings['msg']);
+			update_option('abc_show', $old_settings['show_browser']);
+			update_option('abc_check', $old_settings['check_browser']);
+			update_option('abc_hide', $old_settings['hide']);
+		}
 
 		// Delete the old settings array from the DB
 		delete_option('advanced-browser-check');
