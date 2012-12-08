@@ -64,9 +64,9 @@ class abc_output {
 		//First get the platform?
 		if (preg_match('/android/i', $u_agent)) {
 			$platform = 'android';
-		} elseif (preg_match('/iphone|mac os x/i', $u_agent)) {
+		} elseif (preg_match('/iphone/i', $u_agent)) {
 			$platform = 'iOS';
-		} elseif (preg_match('/ipad|mac os x/i', $u_agent)) {
+		} elseif (preg_match('/ipad/i', $u_agent)) {
 			$platform = 'iOS';
 		} elseif (preg_match('/linux/i', $u_agent)) {
 			$platform = 'linux';
