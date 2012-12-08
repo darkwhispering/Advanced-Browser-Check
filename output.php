@@ -17,8 +17,8 @@ class abc_output {
 		$hide 			= $abc_options['hide'];
 
 		foreach($check_browsers as $browser => $version) {
-			if($user_browser['short_name'] === $browser && $user_browser['version'] <= $version.'______________________________') {
-				$ie6 = ($user_browser['short_name'] === 'ie' && $user_browser['version'] <= '6______________________________') ? 'ie6' : '';
+			if($user_browser['short_name'] == $browser && $user_browser['version'] <= $version.'______________________________' && $user_browser['platform'] != 'android' && $user_browser['platform'] != 'iOS') {
+				$ie6 = ($user_browser['short_name'] == 'ie' && $user_browser['version'] <= '6______________________________') ? 'ie6' : '';
 				return $this->build_html($title, $msg, $show_browsers, $hide, $ie6);
 			}
 		}
@@ -36,13 +36,14 @@ class abc_output {
 			$html .= '<ul class="adv_browser_check_icons">';
 				foreach($show_browsers as $browser => $link) {
 					if($link) {
-						$html .= '<li><a href="'. $link .'" class="'. $browser .'"><img src="'. plugins_url('/img/'. $browser .'-128x128.png', __FILE__) .'" alt="'. $browser .'"></a></li>';
+						$html .= '<li><a href="'. $link .'" class="'. $browser .'" target="_blank"><img src="'. plugins_url('/img/'. $browser .'-128x128.png', __FILE__) .'" alt="'. $browser .'"></a></li>';
 					}
 				}
 			$html .= '</ul>';
 			if($hide) {
 				$html .= '<a href="#" class="abc-hide">Hide</a>';
 			}
+
 		$html .= '</div>';
 
 		return $html;
@@ -53,13 +54,21 @@ class abc_output {
 	**/
 	private function getBrowser()
 	{
-		$u_agent = $_SERVER['HTTP_USER_AGENT'];
-		$bname = 'Unknown';
-		$platform = 'Unknown';
-		$version= "";
+		$u_agent 	= $_SERVER['HTTP_USER_AGENT'];
+		$bname 		= 'Unknown';
+		$platform 	= 'Unknown';
+		$version	= 'Unknown';
+		$short_name = 'Unknown';
+		$ub 		= 'Unknown';
 
 		//First get the platform?
-		if (preg_match('/linux/i', $u_agent)) {
+		if (preg_match('/android/i', $u_agent)) {
+			$platform = 'android';
+		} elseif (preg_match('/iphone|mac os x/i', $u_agent)) {
+			$platform = 'iOS';
+		} elseif (preg_match('/ipad|mac os x/i', $u_agent)) {
+			$platform = 'iOS';
+		} elseif (preg_match('/linux/i', $u_agent)) {
 			$platform = 'linux';
 		} elseif (preg_match('/macintosh|mac os x/i', $u_agent)) {
 			$platform = 'mac';
@@ -69,25 +78,25 @@ class abc_output {
 
 		// Next get the name of the useragent yes seperately and for good reason
 		if (preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)) {
-			$bname = 'Internet Explorer';
+			$bname 		= 'Internet Explorer';
 			$short_name = "ie";
-			$ub = "MSIE";
+			$ub 		= "MSIE";
 		} elseif (preg_match('/Firefox/i',$u_agent)) {
-			$bname = 'Mozilla Firefox';
+			$bname 		= 'Mozilla Firefox';
 			$short_name = "ff";
-			$ub = "Firefox";
+			$ub 		= "Firefox";
 		} elseif (preg_match('/Chrome/i',$u_agent)) {
-			$bname = 'Google Chrome';
+			$bname 		= 'Google Chrome';
 			$short_name = "chrome";
-			$ub = "Chrome";
+			$ub 		= "Chrome";
 		} elseif (preg_match('/Safari/i',$u_agent)) {
-			$bname = 'Apple Safari';
+			$bname 		= 'Apple Safari';
 			$short_name = "safari";
-			$ub = "Safari";
+			$ub 		= "Safari";
 		} elseif (preg_match('/Opera/i',$u_agent)) {
-			$bname = 'Opera';
+			$bname 		= 'Opera';
 			$short_name = "opera";
-			$ub = "Opera";
+			$ub 		= "Opera";
 		}
 
 		// finally get the correct version number
@@ -112,7 +121,7 @@ class abc_output {
 		}
 
 		// check if we have a number
-		if ($version==null || $version=="") {$version="?";}
+		// if ($version==null || $version=="") {$version = "unknown";}
 
 		return array(
 			'userAgent' 	=> $u_agent,

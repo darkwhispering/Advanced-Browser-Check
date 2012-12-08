@@ -4,11 +4,11 @@ Plugin Name: Advanced Browser Check
 Plugin URI: http://www.darkwhispering.com
 Description: Tell IE users to change browser? Or is your site for chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 Author: Mattias Hedman
-Version: 2.0.2
+Version: 2.1.0
 Author URI: http://www.darkwhispering.com
 */
 
-define('ABC_VERSION', '2.0.2');
+define('ABC_VERSION', '2.1.0');
 
 // Check if the file is loaded via AJAX
 if($_POST['ajax']) {
