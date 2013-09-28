@@ -82,7 +82,7 @@ function abc_default_browsers() {
 /**
 * Styles and scripts needed for the plugin to work
 **/
-function abc_styles_and_scripts() {
+function abc_scripts() {
 	// Load jQuery
 	wp_enqueue_script("jquery");
 
@@ -91,11 +91,15 @@ function abc_styles_and_scripts() {
 
 	// The ajax request so the plugin works with caching plugins
 	wp_enqueue_script("abc_script", plugins_url('/js/script.js', __FILE__));
+}
 
+function abc_styles() {
 	// Stylesheet for the popup
 	wp_enqueue_style("abc_style", plugins_url('/css/style.css', __FILE__));
 }
-add_action('wp_enqueue_scripts', 'abc_styles_and_scripts');
+
+add_action('wp_enqueue_scripts', 'abc_scripts');
+add_action('wp_enqueue_scripts', 'abc_styles');
 
 /**
 * The wrapper, added to the site footer, that the popup will be placed in after the ajax load
