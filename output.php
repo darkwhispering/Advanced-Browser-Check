@@ -17,7 +17,13 @@ class abc_output {
 		$hide 			= $abc_options['hide'];
 
 		foreach($check_browsers as $browser => $version) {
-			if($user_browser['short_name'] == $browser && $user_browser['version'] <= $version.'______________________________' && $user_browser['platform'] != 'android' && $user_browser['platform'] != 'iOS') {
+			if(
+				$user_browser['short_name'] == $browser
+				&& $user_browser['version'] <= $version.'______________________________'
+				&& $user_browser['platform'] != 'android'
+				&& $user_browser['platform'] != 'iOS'
+				&& $user_browser['platform'] != 'BB10')
+			{
 				$ie6 = ($user_browser['short_name'] == 'ie' && $user_browser['version'] <= '6______________________________') ? 'ie6' : '';
 				return $this->build_html($title, $msg, $show_browsers, $hide, $ie6);
 			}
