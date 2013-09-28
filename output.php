@@ -41,7 +41,7 @@ class abc_output {
 				}
 			$html .= '</ul>';
 			if($hide) {
-				$html .= '<a href="#" class="abc-hide">Hide</a>';
+				$html .= '<a href="#" class="abc-hide">X</a>';
 			}
 
 		$html .= '</div>';
