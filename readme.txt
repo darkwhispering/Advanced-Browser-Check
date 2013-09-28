@@ -1,6 +1,6 @@
 === Advanced Browser Check ===
 Contributors: darkwhispering
-Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning
+Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer
 Requires at least: 3.3.0
 Tested up to: 3.6.1
 Stable tag: 2.2.0
@@ -43,6 +43,7 @@ This plugin is tested and works with the WP Super Cache plugin. It is also teste
 * Added fix for problems with enqueue loading of scripts and css styles. Thanks @sireneweb for the fix.
 * Moved hide link to top right corner.
 * Minor style changes to the overlay box.
+* Added browser names below browser icons.
 
 = 2.1.3 =
 * Updated list of browser versions
