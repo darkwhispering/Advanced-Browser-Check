@@ -32,6 +32,28 @@ This plugin is tested and works with the WP Super Cache plugin. It is also teste
 1. Upload the zipped file to yoursite/wp-content/plugins
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
+== Frequently Asked Questions ==
+
+= There is nothing! No overlay, no popup =
+The plugin requires that your theme have the wp_footer() function added. Without this, the plugin can't create the code it needs to place the overlay and popup on your site.
+
+You also need to have wp_head() function added in your theme header for the script and stylesheet files.
+
+= I only get a black overlay, no popup =
+This can get this from many reasons. It can be any of the plugins you have installed that is not compatible with my plugin. It can also be your theme.
+
+The plugin is tested on the standard theams delivered with wordpress. I can't guarantee that the plugin will work on 3rd pary themes.
+
+Before posting a support thread, please try to inactivate all your plugins except Advanced Browser Check and try again. If you still have the issue, try with another theme.
+
+= I have selected not to block Chrome (or any other browser), but I still get the overlay =
+Please read the above answer and perform the same tests before you start a new support thread.
+
+= I have performed all test above, still not working =
+Okay, might be time to start a support thread, but first, please see if someone else have had your issue and see if they might found a solution before you start a new thread.
+
+If you create a new support post, please provide as much info as possible. Like what Wordpress version you have, version of the plugin, browser you tested and versions on those browser.
+
 == Screenshots ==
 
 1. Frontend screenshot
@@ -44,6 +66,7 @@ This plugin is tested and works with the WP Super Cache plugin. It is also teste
 * Moved hide link to top right corner.
 * Minor style changes to the overlay box.
 * Added browser names below browser icons.
+* updated screenshots
 
 = 2.1.3 =
 * Updated list of browser versions
