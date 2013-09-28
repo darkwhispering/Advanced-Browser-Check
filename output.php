@@ -42,7 +42,12 @@ class abc_output {
 			$html .= '<ul class="adv_browser_check_icons">';
 				foreach($show_browsers as $browser => $link) {
 					if($link) {
-						$html .= '<li><a href="'. $link .'" class="'. $browser .'" target="_blank"><img src="'. plugins_url('/img/'. $browser .'-128x128.png', __FILE__) .'" alt="'. $browser .'"></a></li>';
+						$html .= '<li>';
+							$html .= '<a href="'. $link .'" class="'. $browser .'" target="_blank">';
+								$html .= '<img src="'. plugins_url('/img/'. $browser .'-128x128.png', __FILE__) .'" alt="'. $browser .'">';
+								$html .= $this->getBrowserName($browser);
+							$html .= '</a>';
+						$html .= '</li>';
 					}
 				}
 			$html .= '</ul>';
@@ -53,6 +58,44 @@ class abc_output {
 		$html .= '</div>';
 
 		return $html;
+	}
+
+	/**
+	* Return full browser name based on the short name
+	**/
+	private function getBrowserName($short)
+	{
+
+		switch($short) {
+
+			case 'ff':
+				$browser = 'Firefox';
+				break;
+
+			case 'chrome':
+				$browser = 'Chrome';
+				break;
+
+			case 'safari':
+				$browser = 'Safari';
+				break;
+
+			case 'opera':
+				$browser = 'Opera';
+				break;
+
+			case 'ie':
+				$browser = 'Internet Explorer';
+				break;
+
+			default:
+				$browser = '';
+				break;
+
+		}
+
+		return $browser;
+
 	}
 
 	/**

@@ -58,7 +58,7 @@
 .adv_browser_check_icons {
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 10px 0;
 }
 
 .adv_browser_check_icons li {
