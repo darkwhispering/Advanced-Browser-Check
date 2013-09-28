@@ -11,9 +11,6 @@ jQuery(document).ready(function($){
 				success : function(response) {
 					if(response) {
 						el.html(response).show();
-						if($('.adv_browser_check').hasClass('ie6')) {
-							$('.advanced-browser-check').addClass('ie6');
-						}
 
 						el.on('click','a.abc-hide',function(e){
 							e.preventDefault();

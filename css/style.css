@@ -11,6 +11,7 @@
 
 .adv_browser_check {
 	width: 720px;
+	margin: 0 auto;
 	position: fixed;
 	top: 25%;
 	left: 50%;
@@ -24,12 +25,13 @@
 	text-align: center;
 }
 
-.ie6 {position: absolute;}
-
 .adv_browser_check h1 {
 	font-weight: bold;
 	font-size: large;
 	color: #333;
+}
+
+.adv_browser_check a.abc-hide {
 }
 
 .adv_browser_check_msg {
