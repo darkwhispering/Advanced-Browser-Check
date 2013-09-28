@@ -11,7 +11,7 @@ Tell IE users to change browser? Or is your site for chrome only? Now you choose
 
 This plugin give you the option to give a visitor of your site a warning popup if they use a browser that you don't support. For example, Internet Explorer 6.
 
-It supports the 5 largest and most populare browser on the market.
+It supports the 5 largest and most popular browser on the market.
 
 * Firefox
 * Chrome
@@ -25,7 +25,7 @@ If you allow users to hide the popup, a cookie is set that expires after 24h. Af
 
 This plugin is tested and works with the WP Super Cache plugin. It is also tested and working on Wordpress Networks.
 
-*There is versions added of browsers that it not yet released as stable versions. This is just to minimize the need of an plugin update in the future when new browsers are released and to let users that use the beta and alpha version to test this plugin with there browsers. I will do my best to keep this plugin updated with the latest versions of avaliable browsers.*
+*There is versions added of browsers that it not yet released as stable versions. This is just to minimize the need of an plugin update in the future when new browsers are released and to let users that use the beta and alpha version to test this plugin with there browsers. I will do my best to keep this plugin updated with the latest versions of available browsers.*
 
 == Installation ==
 
