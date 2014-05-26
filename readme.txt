@@ -4,7 +4,7 @@ Donate link: http://darkwhispering.com/by-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
 Tested up to: 3.9.1
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 
@@ -66,6 +66,9 @@ If you create a new support post, please provide as much info as possible. Like 
 This new version include a lot of improvments and rewrites to make the plugin better and more stable. It now also REQUIRES a cache folder that you might need to create manually!
 
 == Changelog ==
+
+= 3.0.1 =
+* Prefixed core files to minimize risks of conflicts with other plugins.
 
 = 3.0.0 =
 * Rewritten and now using [PHP Browscap library](https://github.com/GaretJax/phpbrowscap) for browser detection.
