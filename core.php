@@ -122,7 +122,10 @@ class ABC_Core {
 
     }
 
-    function cache_error()
+    /**
+    * Display cache error
+    **/
+    public function cache_error()
     {
 
         ?>
@@ -139,8 +142,10 @@ class ABC_Core {
     * Check and validate if we have a cache directory
     * Try to create if it don't exsits
     **/
-    public function validate_cache_dir()
+    private function validate_cache_dir()
     {
+
+        $this->cache_dir_error = false;
 
         if (!is_dir($this->cache_dir)) {
 
