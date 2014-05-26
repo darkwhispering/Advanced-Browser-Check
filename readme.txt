@@ -35,6 +35,13 @@ This plugin is tested and works with the WP Super Cache and W3 Total Cache plugi
 
 == Frequently Asked Questions ==
 
+= I have a PHP error =
+If you see an PHP error looking like this
+
+*Parse error: syntax error, unexpected T_STRING, expecting T_CONSTANT_ENCAPSED_STRING or '(' in /path/to/public_html/wp-content/plugins/advanced-browser-check/core.php on line 5*
+
+That means you have a PHP version below 5.3. The plugin uses PHP Namespaces and PHP 5.3 is required as minimum. Please contact your hosting company and let then know you need PHP upgraded.
+
 = There is nothing! No overlay, no popup =
 The plugin requires that your theme have the wp_footer() function added. Without this, the plugin can't create the code it needs to place the overlay and popup on your site.
 
