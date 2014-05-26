@@ -6,6 +6,8 @@ use phpbrowscap\Browscap;
 
 class ABC_Core {
 
+    static $this;
+
     public function __construct()
     {
 
@@ -83,6 +85,7 @@ class ABC_Core {
             'opera'     => '10',
             'chrome'    => '30'
         ));
+        add_option('abc_debug', 'off');
 
         // Run update function, this is where the plugin version number is update
         $this->update();
@@ -93,7 +96,8 @@ class ABC_Core {
             'msg'           => get_option('abc_message'),
             'hide'          => get_option('abc_hide'),
             'show_browser'  => get_option('abc_show'),
-            'check_browser' => get_option('abc_check')
+            'check_browser' => get_option('abc_check'),
+            'debug'         => get_option('abc_debug')
         );
 
     }

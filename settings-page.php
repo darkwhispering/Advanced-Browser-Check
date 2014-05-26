@@ -139,11 +139,33 @@ class ABC_Settings extends ABC_Core {
 								</ul>
                             </td>
                         </tr>
+                        <tr valign="top">
+                            <th scope="row">
+                                <?php _e('Debug'); ?>
+                                <p class="description"><?php _e('Having problems. Activate debug and see what information the plugin detects about your browser. Debug is only visible for administrators!'); ?></p>
+                            </th>
+                            <td>
+                                <?php
+                                    $debug_on = $debug_off = null;
+
+                                    if (!empty($abc['debug'])) {
+                                        $debug_on = $abc['debug'] === 'on' ? 'checked="checked"' : '';
+                                        $debug_off = $abc['debug'] === 'off' ? 'checked="checked"' : '';
+                                    }
+                                ?>
+
+                                <label for="hide">
+                                    <input type="radio" id="abc_debug" name="abc_debug" value="on" <?php echo $debug_on; ?> /> <?php _e('On'); ?>
+                                    <br/>
+                                    <input type="radio" id="abc_debug" name="abc_debug" value="off" <?php echo $debug_off; ?> /> <?php _e('Off'); ?>
+                                </label>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 				<div class="form-row">
 					<input type="hidden" name="action" value="update" />
-					<input type="hidden" name="page_options" value="abc_title,abc_message,abc_hide,abc_show,abc_check" />
+					<input type="hidden" name="page_options" value="abc_title,abc_message,abc_hide,abc_show,abc_check,abc_debug" />
 					<input type="submit" name="submit" value="Save" class="button-primary save" />
 				</div>
 			</form>

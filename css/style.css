@@ -88,3 +88,28 @@
     height: 64px;
     margin: 0 auto;
 }
+
+
+/* === IE 6 === */
+.abc-ie6 .advanced-browser-check,
+.abc-ie6 .adv_browser_check {
+    position: absolute;
+}
+
+.abc-ie6 .adv_browser_check .adv_browser_check_icons {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.abc-ie6 .adv_browser_check .adv_browser_check_icons li {
+    float: left;
+    display: block;
+    width: 70px;
+}
+
+
+/* === DEBUG === */
+.adv_browser_check_debug {
+    list-style: none;
+    text-align: left;
+}
