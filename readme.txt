@@ -77,9 +77,6 @@ This new version include a lot of improvments and rewrites to make the plugin be
 * Smaller browser icons.
 * General bug fixes and tweaks
 
-= 2.3.0 =
-* Added fix for IE 11, thanks [maitresseK](http://wordpress.org/support/topic/ie-11-detection-issue) for the report and solution
-
 = 2.2.0 =
 * Added fix for problems with enqueue loading of scripts and css styles. Thanks @sireneweb for the fix.
 * Moved hide link to top right corner.
