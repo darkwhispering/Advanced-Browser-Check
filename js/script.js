@@ -10,6 +10,7 @@ jQuery(document).ready(function($){
 
 			$.ajax({
 				url : url.abc_url,
+				cache: false,
 				type : 'POST',
 				dataType : 'HTML',
 				data : 'abc_ajax=true',
@@ -20,8 +21,8 @@ jQuery(document).ready(function($){
 						// We will need to add a css class to the body
 						// if we detect IE 6 for combability css to load
 						// properly
-						if ($(response).find('.ie6').length > 0) {
-							$('body').addClass('abc-ie6');
+						if ($(response).find('.old-ie').length > 0) {
+							$('body').addClass('abc-old-ie');
 						}
 
 						// Put in HTML response into the wrapper container

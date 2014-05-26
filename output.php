@@ -31,7 +31,8 @@ class ABC_Output extends ABC_Core {
 
 		if ($debug === 'on' && current_user_can('level_10')) {
 
-			$this->build_html($title, $message, $show_browsers, $hide, '', $user_browser, $debug);
+			$old_ie = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '8') ? 'old-ie' : '';
+			$this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser, $debug);
 
 		} else {
 
@@ -39,14 +40,14 @@ class ABC_Output extends ABC_Core {
 
 				if (
 					$this->get_short_name($user_browser->Browser) === $browser
-					&& $user_browser->MajorVer < ($version+1)
+					&& $user_browser->MajorVer <= $version
 					&& $user_browser->Platform != 'Android'
 					&& $user_browser->Platform != 'iOS'
 					&& $user_browser->Platform != 'BB10')
 				{
 
-					$ie6 = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '7') ? 'ie6' : '';
-					$this->build_html($title, $message, $show_browsers, $hide, $ie6, $user_browser);
+					$old_ie = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '8') ? 'old-ie' : '';
+					$this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser);
 
 				}
 
@@ -59,7 +60,7 @@ class ABC_Output extends ABC_Core {
 	/**
 	* Build up the HTML for the popup
 	**/
-	private function build_html($title = NULL, $msg = NULL, $show_browsers = array(), $hide = NULL, $ie6 = '', $user_browser = array(), $debug = false)
+	private function build_html($title = NULL, $msg = NULL, $show_browsers = array(), $hide = NULL, $old_ie = '', $user_browser = array(), $debug = false)
 	{
 
 		if ($debug) {
@@ -76,15 +77,15 @@ class ABC_Output extends ABC_Core {
 
 		}
 
-		$html = '<div class="adv_browser_check '.$ie6.'">';
+		$html = '<div class="adv_browser_check '.$old_ie.'">';
 
 			if ($debug) { $html .= $debug_html; }
 
-			$html .= '<div class="adv_browser_check_msg '.$ie6.'">';
+			$html .= '<div class="adv_browser_check_msg '.$old_ie.'">';
 				$html .= '<h1>'. $title .'</h2>';
 				$html .= nl2br($msg);
 			$html .= '</div>';
-			$html .= '<ul class="adv_browser_check_icons '.$ie6.'">';
+			$html .= '<ul class="adv_browser_check_icons '.$old_ie.'">';
 
 				foreach($show_browsers as $browser => $link) {
 
@@ -138,7 +139,7 @@ class ABC_Output extends ABC_Core {
 				$short = 'opera';
 				break;
 
-			case 'Internet Explorer':
+			case 'IE':
 				$short = 'ie';
 				break;
 

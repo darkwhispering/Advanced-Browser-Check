@@ -65,6 +65,7 @@ If you create a new support post, please provide as much info as possible. Like 
 * Rewritten and now using [PHP Browscap library](https://github.com/GaretJax/phpbrowscap) for browser detection.
 * Updated browser versions. Includes current versions plus 5 future and 10 past versions.
 * Plugin now REQUIRE a cache folder located in /wp-content/cache with full read and write permissions.
+* Added a debug option for easier debuging.
 * New cleaner design of the overlay.
 * Better responsivness of the overlay, should not be a problem to close it on mobile devices.
 * Smaller browser icons.

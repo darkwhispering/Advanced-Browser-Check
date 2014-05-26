@@ -90,18 +90,18 @@
 }
 
 
-/* === IE 6 === */
-.abc-ie6 .advanced-browser-check,
-.abc-ie6 .adv_browser_check {
+/* === IE === */
+.abc-old-ie .advanced-browser-check,
+.abc-old-ie .adv_browser_check {
     position: absolute;
 }
 
-.abc-ie6 .adv_browser_check .adv_browser_check_icons {
+.abc-old-ie .adv_browser_check .adv_browser_check_icons {
     width: 600px;
     margin: 0 auto;
 }
 
-.abc-ie6 .adv_browser_check .adv_browser_check_icons li {
+.abc-old-ie .adv_browser_check .adv_browser_check_icons li {
     float: left;
     display: block;
     width: 70px;
