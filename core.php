@@ -18,11 +18,11 @@ class ABC_Core {
         $this->cache_dir_error = false;
 
         // Validate cache folder
-        $this->validate_cache_dir(false);
+        $this->validate_cache_dir();
 
         // Display admin notice if we are missing the cache folder
         if ($this->cache_dir_error) {
-            add_action('admin_notices', array($this, 'abc_admin_notice'));
+            add_action('admin_notices', array($this, 'cache_error'));
         }
 
         add_action('init', array($this, 'default_setting_values')); // Default settings
@@ -122,11 +122,24 @@ class ABC_Core {
 
     }
 
+    function cache_error()
+    {
+
+        ?>
+
+            <div class="error">
+                <p><?php _e('Could not create required cache directory. Please go to your wp-content folder and create it manually. Remember to give it full read and write permissions (0777)'); ?></p>
+            </div>
+
+        <?php
+
+    }
+
     /**
     * Check and validate if we have a cache directory
     * Try to create if it don't exsits
     **/
-    private function validate_cache_dir($echo = true)
+    public function validate_cache_dir()
     {
 
         if (!is_dir($this->cache_dir)) {
@@ -134,18 +147,6 @@ class ABC_Core {
             if (!mkdir($this->cache_dir, 0777)) {
 
                 $this->cache_dir_error = true;
-
-                if ($echo) {
-
-                    ?>
-
-                    <div class="error">
-                        <p><?php _e('Could not create required cache directory. Please go to your wp-content folder and create it manually. Remember to give it full read and write permissions (0777)'); ?></p>
-                    </div>
-
-                    <?php
-
-                }
 
             }
 
