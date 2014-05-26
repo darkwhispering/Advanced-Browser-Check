@@ -7,7 +7,7 @@ jQuery(document).ready(function($){
 				url : url.abc_url,
 				type : 'POST',
 				dataType : 'HTML',
-				data : 'ajax=true',
+				data : 'abc_ajax=true',
 				success : function(response) {
 					if(response) {
 						el.html(response).show();
