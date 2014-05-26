@@ -80,9 +80,9 @@ class ABC_Core {
         ));
         add_option('abc_check', array(
             'ie'        => '9',
-            'ff'        => '20',
+            'ff'        => '24',
             'safari'    => '4',
-            'opera'     => '10',
+            'opera'     => '16',
             'chrome'    => '30'
         ));
         add_option('abc_debug', 'off');
