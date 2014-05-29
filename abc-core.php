@@ -1,7 +1,7 @@
 <?php
 
 // Include the Browscap library
-require(WP_PLUGIN_DIR.'/advanced-browser-check/browscap/browscap.php');
+require(plugin_dir_path( __FILE__ ).'browscap/browscap.php');
 use phpbrowscap\Browscap;
 
 class ABC_Core {

@@ -4,7 +4,7 @@ Donate link: http://darkwhispering.com/by-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
 Tested up to: 3.9.1
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 
@@ -35,12 +35,20 @@ This plugin is tested and works with the WP Super Cache and W3 Total Cache plugi
 
 == Frequently Asked Questions ==
 
-= I have a PHP error =
-If you see an PHP error looking like this
+= I get "Fatal error: Allowed memory size of 67108864 bytes exhausted..." =
 
-*Parse error: syntax error, unexpected T_STRING, expecting T_CONSTANT_ENCAPSED_STRING or '(' in /path/to/public_html/wp-content/plugins/advanced-browser-check/core.php on line 5*
+This plugin can be a little heave the first time it is running, when creating the configuration and cache files. If you see a memory error like this it means the plugin are trying to use more memory then it is allowed to. The solution is simple though, bump up the limit.
 
-That means you have a PHP version below 5.3. The plugin uses PHP Namespaces and PHP 5.3 is required as minimum. Please contact your hosting company and let then know you need PHP upgraded.
+You might need to contact your hosting provider to help you, or follow [this](http://bestphphosting.net/how-to-increase-php-memory-limit/) or [this](http://www.devtnt.co/how-to-increase-php-memory-limit-on-godaddy-hosting/) guide.
+
+= I get "Parse error: syntax error, unexpected T_STRING, expecting T_CONSTANT_ENCAPSED_STRING..."  =
+
+If you see a PHP error similar to this, that means you have a PHP version below 5.3. The plugin uses PHP Namespaces and PHP 5.3 is required as minimum. Please contact your hosting company and let then know you need PHP upgraded.
+
+
+= I see a 404 error in the console =
+
+For some users, that have a very secure setup of Wordpress can get this issue if they block direct access to plugin files. See [this support thread](http://wordpress.org/support/topic/failed-to-load-resource-404-advanced-browser-checkphp) for information and direcation of what might be the cause of your issue.
 
 = There is nothing! No overlay, no popup =
 The plugin requires that your theme have the wp_footer() function added. Without this, the plugin can't create the code it needs to place the overlay and popup on your site.
@@ -73,6 +81,9 @@ If you create a new support post, please provide as much info as possible. Like 
 This new version include a lot of improvments and rewrites to make the plugin better and more stable. It now also REQUIRES a cache folder that you might need to create manually!
 
 == Changelog ==
+
+= 3.0.2 =
+* Replaced the use of WP_PLUGIN_DIR with plugin_dir_path() function.
 
 = 3.0.1 =
 * Prefixed core files to minimize risks of conflicts with other plugins.
