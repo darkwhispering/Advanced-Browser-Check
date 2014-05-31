@@ -4,11 +4,13 @@ Donate link: http://darkwhispering.com/by-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
 Tested up to: 3.9.1
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 
 == Description ==
+
+**This plugin requires PHP 5.3 or above**
 
 This plugin give you the option to give a visitor of your site a warning popup if they use a browser that you don't support. For example, Internet Explorer 9 or lover.
 
@@ -25,6 +27,8 @@ You can customize the warning message, choose what browsers download pages you w
 If you allow users to hide the popup, a cookie is set that expires after 24h. After 24h, the user will see the popup again with the option to hide it for another 24h.
 
 This plugin is tested and works with the WP Super Cache and W3 Total Cache plugins. It is also tested and working on Wordpress Networks.
+
+**If you run into problems, please check the [FAQ](http://wordpress.org/plugins/advanced-browser-check/faq/). If you don't find and answer there, look in the [support section](http://wordpress.org/support/plugin/advanced-browser-check) if anyone else have/had the same isssue and if it has been resolved. Creating a new support ticket should always be your last resort for help. Thanks.**
 
 *There is versions added of browsers that it not yet released as stable versions. This is to minimize the need of an plugin update in the future when new browsers are released and to let users try the plugin with beta and alpha version of the browsers browsers. I will do my best to keep this plugin updated with the latest versions of available browsers.*
 
@@ -56,19 +60,19 @@ The plugin requires that your theme have the wp_footer() function added. Without
 You also need to have wp_head() function added in your theme header for the script and stylesheet files.
 
 = I only get a black overlay, no popup =
-This can get this from many reasons. It can be any of the plugins you have installed that is not compatible with my plugin. It can also be your theme.
+You can get this for many reasons. It can be any of the plugins you have installed that is not compatible with my plugin. It can also be your theme.
 
-The plugin is tested on the standard theams delivered with Wordpress. I can't guarantee that the plugin will work on 3rd party themes.
+I test the plugin before every update on a clean Wordpress installation with no other plugins activated or custom theme installed. Due to the large amount of 3rd party themes and plugins for Wordpess, it is impossible to guarantee that the plugin will work with them all.
 
-Before posting a support thread, please try to inactivate all your plugins except Advanced Browser Check and try again. If you still have the issue, try with another theme.
+Before posting a support thread, please try to inactivate all your plugins except Advanced Browser Check and try again. If you still have the issue, try with another theme, or install a clean Wordpress is a subfolder so you can test the plugin on your server with a clena Wordpress installation.
 
 = I have selected not to block Chrome (or any other browser), but I still get the overlay =
-Please read the above answer and perform the same tests before you start a new support thread.
+Please read the above answer and perform the same tests before you start a new support thread. You should also turn on debugging so you see what browser the plugin detects you are using.
 
 = I have performed all test above, still not working =
 Okay, might be time to start a support thread, but first, please see if someone else have had your issue and see if they might found a solution before you start a new thread.
 
-If you create a new support post, please provide as much info as possible. Like what Wordpress version you have, version of the plugin, browser you tested and versions on those browser.
+If you create a new support post, please provide as much info as possible. Like what Wordpress version you have, version of the plugin, browser you tested and versions on those browser. And of course, any error messages you see if you have that.
 
 == Screenshots ==
 
@@ -81,6 +85,9 @@ If you create a new support post, please provide as much info as possible. Like 
 This new version include a lot of improvments and rewrites to make the plugin better and more stable. It now also REQUIRES a cache folder that you might need to create manually!
 
 == Changelog ==
+
+= 3.0.3 =
+* The plugin are now doing AJAX calls "correctly" using the wp_ajax action hook. Hoping this will solve the issue with plugin_dir_path() not working for some users.
 
 = 3.0.2 =
 * Replaced the use of WP_PLUGIN_DIR with plugin_dir_path() function.

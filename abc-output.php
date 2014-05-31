@@ -9,15 +9,12 @@ class ABC_Output extends ABC_Core {
 
 		parent::__construct();
 
-		// Do the magic!
-		$this->html();
-
 	}
 
 	/**
 	* Check if we should display the popup
 	**/
-	private function html()
+	public function html()
 	{
 
 		$user_browser 	= $this->get_browser();
@@ -32,7 +29,7 @@ class ABC_Output extends ABC_Core {
 		if ($debug === 'on' && current_user_can('level_10')) {
 
 			$old_ie = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '8') ? 'old-ie' : '';
-			$this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser, $debug);
+			return $this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser, $debug);
 
 		} else {
 
@@ -47,7 +44,7 @@ class ABC_Output extends ABC_Core {
 				{
 
 					$old_ie = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '8') ? 'old-ie' : '';
-					$this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser);
+					return $this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser);
 
 				}
 
@@ -111,7 +108,7 @@ class ABC_Output extends ABC_Core {
 
 		$html .= '</div>';
 
-		echo $html;
+		return $html;
 
 	}
 
