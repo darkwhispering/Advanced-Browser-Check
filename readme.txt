@@ -81,8 +81,8 @@ If you create a new support post, please provide as much info as possible. Like 
 
 == Upgrade Notice ==
 
-= 3.0.0 =
-This new version include a lot of improvments and rewrites to make the plugin better and more stable.
+= 3.0.0 and above =
+Version 3+ includes a lot of improvments and a complete rewrite to make the plugin better and more stable.
 
 == Changelog ==
 
@@ -92,6 +92,7 @@ This new version include a lot of improvments and rewrites to make the plugin be
 * Added local pre-cached cache file to minimize memory usage more.
 * Moved cache folder into the plugin folder
 * Updated browscap.php to 2.0 from 2.0b
+* Tested on Wordpress 4
 
 = 3.0.3 =
 * The plugin are now doing AJAX calls "correctly" using the wp_ajax action hook. Hoping this will solve the issue with plugin_dir_path() not working for some users.
