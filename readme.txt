@@ -3,8 +3,8 @@ Contributors: darkwhispering
 Donate link: http://darkwhispering.com/by-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
-Tested up to: 3.9.1
-Stable tag: 3.0.3
+Tested up to: 4.0.0
+Stable tag: 3.1.0
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 
@@ -82,9 +82,16 @@ If you create a new support post, please provide as much info as possible. Like 
 == Upgrade Notice ==
 
 = 3.0.0 =
-This new version include a lot of improvments and rewrites to make the plugin better and more stable. It now also REQUIRES a cache folder that you might need to create manually!
+This new version include a lot of improvments and rewrites to make the plugin better and more stable.
 
 == Changelog ==
+
+= 3.1.0 =
+* Updated browscap to utilize less memory.
+* Added local default broscap.ini.
+* Added local pre-cached cache file to minimize memory usage more.
+* Moved cache folder into the plugin folder
+* Updated browscap.php to 2.0 from 2.0b
 
 = 3.0.3 =
 * The plugin are now doing AJAX calls "correctly" using the wp_ajax action hook. Hoping this will solve the issue with plugin_dir_path() not working for some users.
