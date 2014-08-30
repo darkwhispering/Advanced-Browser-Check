@@ -1,7 +1,7 @@
 <?php
 
 // Include the Browscap library
-require(plugin_dir_path( __FILE__ ).'browscap/browscap.php');
+require(plugin_dir_path( __FILE__ ).'lib/browscap.php');
 use phpbrowscap\Browscap;
 
 class ABC_Core {
@@ -14,16 +14,16 @@ class ABC_Core {
         self::$this;
 
         // Cache folder settings
-        $this->cache_dir = WP_CONTENT_DIR.'/cache';
+        $this->cache_dir = ABC_DIR_PATH.'cache';
         $this->cache_dir_error = false;
 
         // Validate cache folder
-        $this->validate_cache_dir();
+        // $this->validate_cache_dir();
 
         // Display admin notice if we are missing the cache folder
-        if ($this->cache_dir_error) {
-            add_action('admin_notices', array($this, 'cache_error'));
-        }
+        // if ($this->cache_dir_error) {
+        //     add_action('admin_notices', array($this, 'cache_error'));
+        // }
 
         add_action('init', array($this, 'default_setting_values')); // Default settings
         add_action('wp_footer', array($this, 'content_wrapper')); // HTML wrapper
@@ -38,18 +38,18 @@ class ABC_Core {
     public function get_browser()
     {
 
-        if (!$this->cache_dir_error) { // Don't load Browscap if we have an issue with the cache folder
+        // if (!$this->cache_dir_error) { // Don't load Browscap if we have an issue with the cache folder
 
             $bc = new Browscap($this->cache_dir);
             $user_browser = $bc->getBrowser();
 
             return $user_browser;
 
-        } else {
+        // } else {
 
-            return array();
+        //     return array();
 
-        }
+        // }
 
     }
 
@@ -127,7 +127,7 @@ class ABC_Core {
     /**
     * Display cache error
     **/
-    public function cache_error()
+    /*public function cache_error()
     {
 
         ?>
@@ -138,28 +138,28 @@ class ABC_Core {
 
         <?php
 
-    }
+    }*/
 
     /**
     * Check and validate if we have a cache directory
     * Try to create if it don't exsits
     **/
-    private function validate_cache_dir()
-    {
+    // private function validate_cache_dir()
+    // {
 
-        $this->cache_dir_error = false;
+    //     $this->cache_dir_error = false;
 
-        if (!is_dir($this->cache_dir)) {
+    //     if (!is_dir($this->cache_dir)) {
 
-            if (!mkdir($this->cache_dir, 0777)) {
+    //         if (!mkdir($this->cache_dir, 0777)) {
 
-                $this->cache_dir_error = true;
+    //             $this->cache_dir_error = true;
 
-            }
+    //         }
 
-        }
+    //     }
 
-    }
+    // }
 
     /**
     * Add scripts we need

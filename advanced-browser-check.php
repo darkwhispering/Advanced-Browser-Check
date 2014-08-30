@@ -10,6 +10,10 @@ Author URI: http://www.darkwhispering.com
 
 define('ABC_VERSION', '3.0.3');
 
+if(!defined('ABC_DIR_PATH')) {
+    define('ABC_DIR_PATH', plugin_dir_path(__FILE__));
+}
+
 
 add_action('wp_ajax_abc_ajax', 'abc_ajax');
 add_action('wp_ajax_nopriv_abc_ajax', 'abc_ajax');
@@ -20,7 +24,7 @@ function abc_ajax() {
 
     include_once('abc-core.php');
     include_once('abc-output.php');
-    
+
     $output = new ABC_Output;
     echo $output->html();
     die();
