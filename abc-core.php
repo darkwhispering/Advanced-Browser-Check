@@ -218,10 +218,10 @@ class ABC_Core {
         wp_enqueue_script("jquery");
 
         // jQuery cookie, used to add a cookie so visitors can hide the popup
-        wp_enqueue_script("apc_jquery_cookie", plugins_url('/js/jquery.cookie.js', __FILE__));
+        wp_enqueue_script("apc_jquery_cookie", plugins_url('/js/jquery.cookie.js', __FILE__), array('jquery'));
 
         // The ajax request so the plugin works with caching plugins
-        wp_enqueue_script("abc_script", plugins_url('/js/script.js', __FILE__));
+        wp_enqueue_script("abc_script", plugins_url('/js/script.js', __FILE__), array('jquery'));
     }
 
     /**
