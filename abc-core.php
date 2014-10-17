@@ -1,9 +1,5 @@
 <?php
 
-// Include the Browscap library
-require(plugin_dir_path( __FILE__ ).'lib/browscap.php');
-use phpbrowscap\Browscap;
-
 class ABC_Core {
 
     static $this;
@@ -13,18 +9,6 @@ class ABC_Core {
 
         self::$this;
 
-        // Cache folder settings
-        $this->cache_dir = ABC_DIR_PATH.'cache';
-        $this->cache_dir_error = false;
-
-        // Validate cache folder
-        // $this->validate_cache_dir();
-
-        // Display admin notice if we are missing the cache folder
-        // if ($this->cache_dir_error) {
-        //     add_action('admin_notices', array($this, 'cache_error'));
-        // }
-
         add_action('init', array($this, 'default_setting_values')); // Default settings
         add_action('wp_footer', array($this, 'content_wrapper')); // HTML wrapper
         add_action('wp_enqueue_scripts', array($this, 'scripts')); // Needed scripts
@@ -33,39 +17,136 @@ class ABC_Core {
     }
 
     /**
-    * Get activ users browser details
-    **/
+     * Get activ users browser details
+     * @return array [browser details]
+     */
     public function get_browser()
     {
 
-        // if (!$this->cache_dir_error) { // Don't load Browscap if we have an issue with the cache folder
+        $user_agent        = $_SERVER['HTTP_USER_AGENT'];
+        $browser_full_name = 'Unknown';
+        $browser_name      = 'Unknown';
+        $platform          = 'Unknown';
+        $version           = 'Unknown';
+        $short_name        = 'Unknown';
 
-            $bc = new Browscap($this->cache_dir);
-            $user_browser = $bc->getBrowser();
+        // First get the platform
+        if (preg_match('/android/i', $user_agent)) {
 
-            return $user_browser;
+            $platform = 'android';
 
-        // } else {
+        } elseif (preg_match('/iphone/i', $user_agent) || preg_match('/ipad/i', $user_agent) || preg_match('/ipod/i', $user_agent)) {
 
-        //     return array();
+            $platform = 'iOS';
 
-        // }
+        } elseif (preg_match('/linux/i', $user_agent)) {
+
+            $platform = 'linux';
+
+        } elseif (preg_match('/macintosh|mac os x/i', $user_agent)) {
+
+            $platform = 'mac';
+
+        } elseif (preg_match('/windows|win32/i', $user_agent)) {
+
+            $platform = 'windows';
+
+        }
+
+        // Next get the name of the useragent yes seperately and for good reason
+        if (preg_match('/MSIE/i',$user_agent) && !preg_match('/Opera/i',$user_agent) || preg_match('/Windows NT/i',$user_agent) && !preg_match('/Opera/i',$user_agent)) {
+
+            $browser_full_name = 'Internet Explorer';
+            $browser_name      = 'MSIE';
+            $short_name        = 'ie';
+
+        } elseif (preg_match('/Firefox/i',$user_agent)) {
+
+            $browser_full_name = 'Mozilla Firefox';
+            $browser_name      = 'Firefox';
+            $short_name        = 'ff';
+
+        } elseif (preg_match('/Chrome/i',$user_agent)) {
+
+            $browser_full_name = 'Google Chrome';
+            $browser_name      = 'Chrome';
+            $short_name        = 'chrome';
+
+        } elseif (preg_match('/Safari/i',$user_agent)) {
+
+            $browser_full_name = 'Apple Safari';
+            $browser_name      = 'Safari';
+            $short_name        = 'safari';
+
+        } elseif (preg_match('/Opera/i',$user_agent)) {
+
+            $browser_full_name = 'Opera';
+            $browser_name      = 'Opera';
+            $short_name        = 'opera';
+
+        }
+
+        // finally get the correct version number
+        $known = array('Version', $browser_name, 'rv');
+        $pattern = '#(?<browser>' . implode('|', $known) . ')[/ |:]+(?<version>[0-9.|a-zA-Z.]*)#';
+        if (!preg_match_all($pattern, $user_agent, $matches)) {
+            // we have no matching number just continue
+        }
+
+        // see how many we have
+        $i = count($matches['browser']);
+
+        if ($i != 1) {
+
+            //we will have two since we are not using 'other' argument yet
+            //see if version is before or after the name
+            if (strripos($user_agent, 'Version') < strripos($user_agent, $browser_name)){
+
+                $version = $matches['version'][0];
+
+            } else {
+
+                $version = $matches['version'][1];
+
+            }
+
+        } else {
+
+            $version = $matches['version'][0];
+
+        }
+
+        // check if we have a number
+        if ($version == null || $version == '' || $version == 0) {$version = 'Unknown';}
+
+        return array(
+            'user_agent' => $user_agent,
+            'name'       => $browser_full_name,
+            'short_name' => $short_name,
+            'version'    => floor($version),
+            'platform'   => $platform,
+            'pattern'    => $pattern
+        );
 
     }
 
     /**
-    * The wrapper, added to the site footer, that the popup will be placed in after the ajax load
-    **/
+     * The wrapper, added to the site footer, that the popup
+     * will be placed in after the ajax load
+     * @return html [echos out the html code needed]
+     */
     function content_wrapper()
     {
+
         echo "<div class='advanced-browser-check' style='display:none;' data-url='".json_encode(array("abc_url" => admin_url('admin-ajax.php')))."'></div>";
 
-        // echo "<div class='advanced-browser-check' style='display:none;' data-url='".json_encode(array("abc_url" => plugins_url("advanced-browser-check.php",__FILE__)))."'></div>";
     }
 
     /**
-    * Default settings and settings array used trough out the plugin
-    **/
+     * Default settings and settings array used trough out
+     * the plugin
+     * @return array [default settings array]
+     */
     public function default_setting_values()
     {
 
@@ -82,9 +163,9 @@ class ABC_Core {
         ));
         add_option('abc_check', array(
             'ie'        => '9',
-            'ff'        => '24',
+            'ff'        => '25',
             'safari'    => '4',
-            'opera'     => '16',
+            'opera'     => '17',
             'chrome'    => '30'
         ));
         add_option('abc_debug', 'off');
@@ -107,59 +188,27 @@ class ABC_Core {
     /**
     * Default browsers settings. This builds the browser dropdowns on the admin page
     **/
+    /**
+     * Default browsers settings. This builds the browser
+     * dropdowns on the admin page
+     * @return array [versions of each browser to include]
+     */
     public function default_browsers()
     {
 
         // Included version numbers is current stable (since latest plugin update)
         // and 5 future versions
-        // and 10 older versions
+        // and 8 older versions
 
         return array(
-            'safari'    => array(0,3,4,5,6,7,8,9,10),
-            'opera'     => array(0,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26),
-            'ff'        => array(0,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34),
-            'chrome'    => array(0,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40),
-            'ie'        => array(0,7,8,9,10,11,12,13,14)
+            'safari'    => array(0,3,4,5,6,7,8,9,10,11),
+            'opera'     => array(0,17,18,19,20,21,22,23,24,25,26,27,28,29,30),
+            'ff'        => array(0,25,26,27,28,29,30,31,32,33,34,35,36,37,36),
+            'chrome'    => array(0,30,31,32,33,34,35,36,37,38,39,40,41,42,43),
+            'ie'        => array(0,7,8,9,10,11,12,13,14,15)
         );
 
     }
-
-    /**
-    * Display cache error
-    **/
-    /*public function cache_error()
-    {
-
-        ?>
-
-            <div class="error">
-                <p><?php _e('Could not create required cache directory. Please go to your wp-content folder and create it manually. Remember to give it full read and write permissions (0777)'); ?></p>
-            </div>
-
-        <?php
-
-    }*/
-
-    /**
-    * Check and validate if we have a cache directory
-    * Try to create if it don't exsits
-    **/
-    // private function validate_cache_dir()
-    // {
-
-    //     $this->cache_dir_error = false;
-
-    //     if (!is_dir($this->cache_dir)) {
-
-    //         if (!mkdir($this->cache_dir, 0777)) {
-
-    //             $this->cache_dir_error = true;
-
-    //         }
-
-    //     }
-
-    // }
 
     /**
     * Add scripts we need

@@ -1,7 +1,5 @@
 <?php
-// ========================
-// = Output			 	  =
-// ========================
+
 class ABC_Output extends ABC_Core {
 
 	public function __construct()
@@ -17,18 +15,18 @@ class ABC_Output extends ABC_Core {
 	public function html()
 	{
 
-		$user_browser 	= $this->get_browser();
-		$abc_options 	= $this->default_setting_values();
+		$user_browser   = $this->get_browser();
+		$abc_options    = $this->default_setting_values();
 		$check_browsers = $abc_options['check_browser'];
-		$show_browsers 	= $abc_options['show_browser'];
-		$title 			= $abc_options['title'];
-		$message 		= $abc_options['msg'];
-		$hide 			= $abc_options['hide'];
-		$debug			= $abc_options['debug'];
+		$show_browsers  = $abc_options['show_browser'];
+		$title          = $abc_options['title'];
+		$message        = $abc_options['msg'];
+		$hide           = $abc_options['hide'];
+		$debug          = $abc_options['debug'];
+		$old_ie         = ($user_browser['short_name'] === 'ie' && $user_browser['version'] < '8') ? 'old-ie' : '';
 
 		if ($debug === 'on' && current_user_can('level_10')) {
 
-			$old_ie = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '8') ? 'old-ie' : '';
 			return $this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser, $debug);
 
 		} else {
@@ -36,14 +34,14 @@ class ABC_Output extends ABC_Core {
 			foreach($check_browsers as $browser => $version) {
 
 				if (
-					$this->get_short_name($user_browser->Browser) === $browser
-					&& $user_browser->MajorVer <= $version
-					&& $user_browser->Platform != 'Android'
-					&& $user_browser->Platform != 'iOS'
-					&& $user_browser->Platform != 'BB10')
+					$user_browser['short_name'] === $browser
+					&& $user_browser['version'] <= $version
+					&& $user_browser['version'] > 0
+					&& $user_browser['platform'] != 'android'
+					&& $user_browser['platform'] != 'iOS'
+					&& $user_browser['platform'] != 'Unknown')
 				{
 
-					$old_ie = ($this->get_short_name($user_browser->Browser) === 'ie' && $user_browser->MajorVer < '8') ? 'old-ie' : '';
 					return $this->build_html($title, $message, $show_browsers, $hide, $old_ie, $user_browser);
 
 				}
@@ -87,7 +85,7 @@ class ABC_Output extends ABC_Core {
 				foreach($show_browsers as $browser => $link) {
 
 					if($link) {
-						
+
 						$html .= '<li>';
 							$html .= '<a href="'. $link .'" class="'. $browser .'" target="_blank">';
 								$html .= '<img src="'. plugins_url('/img/'. $browser .'-64x64.png', __FILE__) .'" alt="'. $browser .'">';
@@ -109,44 +107,6 @@ class ABC_Output extends ABC_Core {
 		$html .= '</div>';
 
 		return $html;
-
-	}
-
-	/**
-	* Return short browser name based on the full name
-	**/
-	private function get_short_name($browser)
-	{
-
-		switch($browser) {
-
-			case 'Firefox':
-				$short = 'ff';
-				break;
-
-			case 'Chrome':
-				$short = 'chrome';
-				break;
-
-			case 'Safari':
-				$short = 'safari';
-				break;
-
-			case 'Opera':
-				$short = 'opera';
-				break;
-
-			case 'IE':
-				$short = 'ie';
-				break;
-
-			default:
-				$short = 'other';
-				break;
-
-		}
-
-		return $short;
 
 	}
 

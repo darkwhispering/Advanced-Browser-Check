@@ -1,7 +1,4 @@
 <?php
-// ========================
-// = Plugin settings page =
-// ========================
 
 class ABC_Settings extends ABC_Core {
 
@@ -34,7 +31,7 @@ class ABC_Settings extends ABC_Core {
                             	<label for="abc_title"><?php  _e('Title'); ?></label>
                             </th>
                             <td>
-								<input type="text" class="large-text" id="abc_title" name="abc_title" value="<?php echo $abc['title']; ?>">                
+								<input type="text" class="large-text" id="abc_title" name="abc_title" value="<?php echo $abc['title']; ?>">
                             </td>
                         </tr>
                         <tr valign="top">
