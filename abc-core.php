@@ -54,13 +54,7 @@ class ABC_Core {
         }
 
         // Next get the name of the useragent yes seperately and for good reason
-        if (preg_match('/MSIE/i',$user_agent) && !preg_match('/Opera/i',$user_agent) || preg_match('/Windows NT/i',$user_agent) && !preg_match('/Opera/i',$user_agent)) {
-
-            $browser_full_name = 'Internet Explorer';
-            $browser_name      = 'MSIE';
-            $short_name        = 'ie';
-
-        } elseif (preg_match('/Firefox/i',$user_agent)) {
+        if (preg_match('/Firefox/i',$user_agent)) {
 
             $browser_full_name = 'Mozilla Firefox';
             $browser_name      = 'Firefox';
@@ -77,6 +71,13 @@ class ABC_Core {
             $browser_full_name = 'Apple Safari';
             $browser_name      = 'Safari';
             $short_name        = 'safari';
+
+        } elseif (preg_match('/MSIE/i',$user_agent) && !preg_match('/Opera/i',$user_agent)
+            || preg_match('/Windows NT/i',$user_agent) && !preg_match('/Opera/i',$user_agent)) {
+
+            $browser_full_name = 'Internet Explorer';
+            $browser_name      = 'MSIE';
+            $short_name        = 'ie';
 
         } elseif (preg_match('/Opera/i',$user_agent)) {
 
