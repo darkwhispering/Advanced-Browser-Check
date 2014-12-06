@@ -152,8 +152,8 @@ class ABC_Core {
     {
 
         // Default settings values
-        add_option('abc_title', 'You are using a web browser not supported by this website!');
-        add_option('abc_message', 'You are using a web browser that is not supported by this website. This means that some function may not work as supposed which can result in strange behaviors when browsing around. Use or upgrade/install on of the following browsers to take full advantage of this website. - Thank you!');
+        add_option( 'abc_title', __( 'You are using a web browser not supported by this website!', 'advanced-browser-check' ) );
+        add_option( 'abc_message', __( 'You are using a web browser that is not supported by this website. This means that some function may not work as supposed which can result in strange behaviors when browsing around. Use or upgrade/install on of the following browsers to take full advantage of this website. - Thank you!', 'advanced-browser-check' ) );
         add_option('abc_hide', NULL);
         add_option('abc_show', array(
             'ie'        => '',

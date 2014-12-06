@@ -17,6 +17,7 @@ if(!defined('ABC_DIR_PATH')) {
 
 add_action('wp_ajax_abc_ajax', 'abc_ajax');
 add_action('wp_ajax_nopriv_abc_ajax', 'abc_ajax');
+load_plugin_textdomain('advanced-browser-check', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 
 // Create html output on ajax request
