@@ -56,7 +56,7 @@ class ABC_Settings extends ABC_Core {
                         <tr valign="top">
                             <th scope="row">
                             	<?php _e('Choose browsers to link'); ?>
-                            	<p class="description"><?php _e('This is the browsers that you can display a link to and tell ypur visitor to use'); ?></p>
+                            	<p class="description"><?php _e('This is the browsers that you can display a link to and tell your visitor to use'); ?></p>
                             </th>
                             <td>
                             	<ul>
