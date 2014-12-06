@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Browser Check\n"
-"POT-Creation-Date: 2014-12-06 11:45+0200\n"
-"PO-Revision-Date: 2014-12-06 11:47+0200\n"
+"POT-Creation-Date: 2014-12-06 12:30+0200\n"
+"PO-Revision-Date: 2014-12-06 12:30+0200\n"
 "Last-Translator: Ran Bar-Zik <ran@bar-zik.com>\n"
 "Language-Team: \n"
 "Language: en-us\n"
@@ -10,10 +10,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
+
+#: ../abc-core.php:155
+msgid "You are using a web browser not supported by this website!"
+msgstr ""
+
+#: ../abc-core.php:156
+msgid ""
+"You are using a web browser that is not supported by this website. This "
+"means that some function may not work as supposed which can result in "
+"strange behaviors when browsing around. Use or upgrade/install on of the "
+"following browsers to take full advantage of this website. - Thank you!"
+msgstr ""
+
+#: ../abc-settings-page.php:15
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
 
 #: ../abc-settings-page.php:22
 msgid "Advanced Browser Check"
@@ -99,4 +115,16 @@ msgstr ""
 
 #: ../abc-settings-page.php:157
 msgid "Off"
+msgstr ""
+
+#: ../abc-settings-page.php:166
+msgid "Save"
+msgstr ""
+
+#: General strings for WordPress plugin
+
+msgid "Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site."
+msgstr ""
+
+msgid "Mattias Hedman"
 msgstr ""
