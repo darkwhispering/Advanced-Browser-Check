@@ -44,7 +44,7 @@ class ABC_Settings extends ABC_Core {
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                            	<?php _e('Let user hide the popup', 'advanced-browser-check'); ?>
+                            	<?php _e( 'Let user hide the popup', 'advanced-browser-check'); ?>
                             	<p class="description"><?php _e( 'Let the user hide the popup and use your site. The popup will be hidden for 24h only, this is set by a cookie', 'advanced-browser-check' ); ?></p>
                             </th>
                             <td>
