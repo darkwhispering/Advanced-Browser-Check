@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Browser Check\n"
-"POT-Creation-Date: 2014-12-06 12:30+0200\n"
-"PO-Revision-Date: 2014-12-06 12:34+0200\n"
+"POT-Creation-Date: 2014-12-06 12:59+0200\n"
+"PO-Revision-Date: 2014-12-06 13:03+0200\n"
 "Last-Translator: Ran Bar-Zik <ran@bar-zik.com>\n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -14,6 +14,30 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
+
+#: ../abc-output.php:122 ../abc-settings-page.php:70
+msgid "Firefox"
+msgstr "פיירפוקס"
+
+#: ../abc-output.php:126 ../abc-settings-page.php:85
+msgid "Chrome"
+msgstr "כרום"
+
+#: ../abc-output.php:130 ../abc-settings-page.php:75
+msgid "Safari"
+msgstr "ספארי"
+
+#: ../abc-output.php:134 ../abc-settings-page.php:80
+msgid "Opera"
+msgstr "אופרה"
+
+#: ../abc-output.php:138 ../abc-settings-page.php:65
+msgid "Internet Explorer"
+msgstr "אינטרנט אקספלורר"
+
+#: ../abc-output.php:142
+msgid "other"
+msgstr "אחר"
 
 #: ../abc-core.php:155
 msgid "You are using a web browser not supported by this website!"
@@ -73,26 +97,6 @@ msgid ""
 "use"
 msgstr ""
 "אלו הם הדפדפנים שאתם יכולים להציג אליהם קישור שהמשתמשים שלכם יוכלו ללחוץ עליו"
-
-#: ../abc-settings-page.php:65
-msgid "Internet Explorer"
-msgstr "אינטרנט אקספלורר"
-
-#: ../abc-settings-page.php:70
-msgid "Firefox"
-msgstr "פיירפוקס"
-
-#: ../abc-settings-page.php:75
-msgid "Safari"
-msgstr "ספארי"
-
-#: ../abc-settings-page.php:80
-msgid "Opera"
-msgstr "אופרה"
-
-#: ../abc-settings-page.php:85
-msgid "Chrome"
-msgstr "כרום"
 
 #: ../abc-settings-page.php:93
 msgid "Browsers and versions to check"

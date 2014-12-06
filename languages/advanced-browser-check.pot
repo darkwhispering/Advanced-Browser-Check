@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Browser Check\n"
-"POT-Creation-Date: 2014-12-06 12:30+0200\n"
-"PO-Revision-Date: 2014-12-06 12:30+0200\n"
+"POT-Creation-Date: 2014-12-06 12:59+0200\n"
+"PO-Revision-Date: 2014-12-06 13:00+0200\n"
 "Last-Translator: Ran Bar-Zik <ran@bar-zik.com>\n"
 "Language-Team: \n"
 "Language: en-us\n"
@@ -14,6 +14,30 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
+
+#: ../abc-output.php:122 ../abc-settings-page.php:70
+msgid "Firefox"
+msgstr ""
+
+#: ../abc-output.php:126 ../abc-settings-page.php:85
+msgid "Chrome"
+msgstr ""
+
+#: ../abc-output.php:130 ../abc-settings-page.php:75
+msgid "Safari"
+msgstr ""
+
+#: ../abc-output.php:134 ../abc-settings-page.php:80
+msgid "Opera"
+msgstr ""
+
+#: ../abc-output.php:138 ../abc-settings-page.php:65
+msgid "Internet Explorer"
+msgstr ""
+
+#: ../abc-output.php:142
+msgid "other"
+msgstr ""
 
 #: ../abc-core.php:155
 msgid "You are using a web browser not supported by this website!"
@@ -65,26 +89,6 @@ msgstr ""
 msgid ""
 "This is the browsers that you can display a link to and tell your visitor to "
 "use"
-msgstr ""
-
-#: ../abc-settings-page.php:65
-msgid "Internet Explorer"
-msgstr ""
-
-#: ../abc-settings-page.php:70
-msgid "Firefox"
-msgstr ""
-
-#: ../abc-settings-page.php:75
-msgid "Safari"
-msgstr ""
-
-#: ../abc-settings-page.php:80
-msgid "Opera"
-msgstr ""
-
-#: ../abc-settings-page.php:85
-msgid "Chrome"
 msgstr ""
 
 #: ../abc-settings-page.php:93
