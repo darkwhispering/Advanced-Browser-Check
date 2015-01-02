@@ -56,7 +56,7 @@ class ABC_Settings extends ABC_Core {
                         <tr valign="top">
                             <th scope="row">
                             	<?php _e( 'Choose browsers to link', 'advanced-browser-check' ); ?>
-                            	<p class="description"><?php _e( 'This is the browsers that you can display a link to and tell your visitor to use', 'advanced-browser-check' ); ?></p>
+                            	<p class="description"><?php _e( 'These are the browsers that you can display a link to and tell your visitor to use', 'advanced-browser-check' ); ?></p>
                             </th>
                             <td>
                             	<ul>
@@ -97,36 +97,40 @@ class ABC_Settings extends ABC_Core {
 	                            	<?php $browsers = $this->default_browsers(); ?>
 									<?php $browser_selects = ''; ?>
 									<?php foreach($browsers as $key => $browser) : ?>
+                                        <?php
+                                            switch($key) {
+                                                case $key == 'ff' :
+                                                    $browser_name = 'Firefox';
+                                                break;
+                                                case $key == 'ie' :
+                                                    $browser_name = 'Internet Explorer';
+                                                break;
+                                                case $key == 'safari' :
+                                                    $browser_name = 'Safari';
+                                                break;
+                                                case $key == 'opera' :
+                                                    $browser_name = 'Opera';
+                                                break;
+                                                case $key == 'chrome' :
+                                                    $browser_name = 'Chrome';
+                                                break;
+                                            }
+                                        ?>
 										<li>
 											<?php $browser_selects .= $key.','; ?>
+                                            <span class="abc-browser-select-name">
+                                                <?php _e( $browser_name, 'advanced-browser-check' ); ?>:
+                                            </span>
 											<select name="abc_check[<?php echo $key; ?>]">
-												<?php
-													switch($key) {
-														case $key == 'ff' :
-															$browser_name = 'Firefox';
-														break;
-														case $key == 'ie' :
-															$browser_name = 'Internet Explorer';
-														break;
-														case $key == 'safari' :
-															$browser_name = 'Safari';
-														break;
-														case $key == 'opera' :
-															$browser_name = 'Opera';
-														break;
-														case $key == 'chrome' :
-															$browser_name = 'Chrome';
-														break;
-													}
-												?>
 												<?php foreach($browser as $b) : ?>
 													<?php if ($b == '0') : ?>
 														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
-															<?php _e( 'Do not block ', 'advanced-browser-check' ).$browser_name; ?>
+															<?php _e( 'Do not block ', 'advanced-browser-check' ); ?>
 														</option>
 													<?php else : ?>
 														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
-															<?php echo $browser_name .' '. $b; ?> <?php _e( ' or lower', 'advanced-browser-check' ); ?>
+															<?php //echo $browser_name .' '. $b; ?> <?php //_e( ' or lower', 'advanced-browser-check' ); ?>
+                                                            <?php _e( 'version ', 'advanced-browser-check' ); echo $b; ?> <?php _e( ' or lower', 'advanced-browser-check' ); ?>
 														</option>
 													<?php endif; ?>
 												<?php endforeach; ?>
