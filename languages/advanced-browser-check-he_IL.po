@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Browser Check\n"
-"POT-Creation-Date: 2014-12-06 12:59+0200\n"
-"PO-Revision-Date: 2014-12-06 13:03+0200\n"
+"POT-Creation-Date: 2015-01-03 12:21+0200\n"
+"PO-Revision-Date: 2015-01-03 12:26+0200\n"
 "Last-Translator: Ran Bar-Zik <ran@bar-zik.com>\n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -46,8 +46,8 @@ msgstr "הנכם משתמשים בדפדפן שאינו נתמך על ידי ה�
 #: ../abc-core.php:156
 msgid ""
 "You are using a web browser that is not supported by this website. This "
-"means that some function may not work as supposed which can result in "
-"strange behaviors when browsing around. Use or upgrade/install on of the "
+"means that some functionality may not work as intended. This may result in "
+"strange behaviors when browsing around. Use or upgrade/install one of the "
 "following browsers to take full advantage of this website. - Thank you!"
 msgstr ""
 "הנכם משתמשים בדפדפן שאינו נתמך על ידי אתר זה. המשמעות היא שחלק מהפעולות באתר "
@@ -93,8 +93,8 @@ msgstr "בחרו את הדפדפנים לקשר אליהם"
 
 #: ../abc-settings-page.php:59
 msgid ""
-"This is the browsers that you can display a link to and tell your visitor to "
-"use"
+"These are the browsers that you can display a link to and tell your visitor "
+"to use"
 msgstr ""
 "אלו הם הדפדפנים שאתם יכולים להציג אליהם קישור שהמשתמשים שלכם יוכלו ללחוץ עליו"
 
@@ -102,19 +102,23 @@ msgstr ""
 msgid "Browsers and versions to check"
 msgstr "לבדוק את הדפדפנים והגרסאות האלו:"
 
-#: ../abc-settings-page.php:125
+#: ../abc-settings-page.php:128
 msgid "Do not block "
 msgstr "לא לחסום"
 
-#: ../abc-settings-page.php:129
+#: ../abc-settings-page.php:133
+msgid "version "
+msgstr "גרסה"
+
+#: ../abc-settings-page.php:133
 msgid " or lower"
 msgstr "או נמוך יותר"
 
-#: ../abc-settings-page.php:141
+#: ../abc-settings-page.php:145
 msgid "Debug"
 msgstr "דיבאג"
 
-#: ../abc-settings-page.php:142
+#: ../abc-settings-page.php:146
 msgid ""
 "Having problems. Activate debug and see what information the plugin detects "
 "about your browser. Debug is only visible for administrators!"
@@ -122,15 +126,15 @@ msgstr ""
 "יש בעיות. אנא הפעילו את הדיבאג וצפו במידע שהתוסף מגלה על הדפדפן שלך. דיבאג "
 "זמין רק למנהלי האתר."
 
-#: ../abc-settings-page.php:155
+#: ../abc-settings-page.php:159
 msgid "On"
 msgstr "פועל"
 
-#: ../abc-settings-page.php:157
+#: ../abc-settings-page.php:161
 msgid "Off"
 msgstr "כבוי"
 
-#: ../abc-settings-page.php:166
+#: ../abc-settings-page.php:170
 msgid "Save"
 msgstr "לשמור"
 
