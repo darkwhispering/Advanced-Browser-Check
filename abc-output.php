@@ -119,27 +119,27 @@ class ABC_Output extends ABC_Core {
 		switch($short) {
 
 			case 'ff':
-				$browser = 'Firefox';
+				$browser = __( 'Firefox', 'advanced-browser-check' );
 				break;
 
 			case 'chrome':
-				$browser = 'Chrome';
+				$browser = __( 'Chrome', 'advanced-browser-check' );
 				break;
 
 			case 'safari':
-				$browser = 'Safari';
+				$browser = __( 'Safari', 'advanced-browser-check' );
 				break;
 
 			case 'opera':
-				$browser = 'Opera';
+				$browser = __( 'Opera', 'advanced-browser-check' );
 				break;
 
 			case 'ie':
-				$browser = 'Internet Explorer';
+				$browser = __( 'Internet Explorer', 'advanced-browser-check' );
 				break;
 
 			default:
-				$browser = 'other';
+				$browser = __( 'other', 'advanced-browser-check' );
 				break;
 
 		}

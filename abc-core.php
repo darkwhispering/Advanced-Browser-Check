@@ -152,8 +152,8 @@ class ABC_Core {
     {
 
         // Default settings values
-        add_option('abc_title', 'You are using a web browser not supported by this website!');
-        add_option('abc_message', 'You are using a web browser that is not supported by this website. This means that some function may not work as supposed which can result in strange behaviors when browsing around. Use or upgrade/install on of the following browsers to take full advantage of this website. - Thank you!');
+        add_option( 'abc_title', __( 'You are using a web browser not supported by this website!', 'advanced-browser-check' ) );
+        add_option( 'abc_message', __( 'You are using a web browser that is not supported by this website. This means that some functionality may not work as intended. This may result in strange behaviors when browsing around. Use or upgrade/install one of the following browsers to take full advantage of this website. - Thank you!', 'advanced-browser-check' ) );
         add_option('abc_hide', NULL);
         add_option('abc_show', array(
             'ie'        => '',
@@ -203,9 +203,9 @@ class ABC_Core {
 
         return array(
             'safari'    => array(0,3,4,5,6,7,8,9,10,11),
-            'opera'     => array(0,17,18,19,20,21,22,23,24,25,26,27,28,29,30),
-            'ff'        => array(0,25,26,27,28,29,30,31,32,33,34,35,36,37,36),
-            'chrome'    => array(0,30,31,32,33,34,35,36,37,38,39,40,41,42,43),
+            'opera'     => array(0,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            'ff'        => array(0,26,27,28,29,30,31,32,33,34,35,36,37,36,37),
+            'chrome'    => array(0,31,32,33,34,35,36,37,38,39,40,41,42,43,44),
             'ie'        => array(0,7,8,9,10,11,12,13,14,15)
         );
 

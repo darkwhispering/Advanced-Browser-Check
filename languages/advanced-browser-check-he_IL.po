@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Browser Check\n"
+"POT-Creation-Date: 2014-12-06 12:59+0200\n"
+"PO-Revision-Date: 2014-12-06 13:03+0200\n"
+"Last-Translator: Ran Bar-Zik <ran@bar-zik.com>\n"
+"Language-Team: \n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../abc-output.php:122 ../abc-settings-page.php:70
+msgid "Firefox"
+msgstr "פיירפוקס"
+
+#: ../abc-output.php:126 ../abc-settings-page.php:85
+msgid "Chrome"
+msgstr "כרום"
+
+#: ../abc-output.php:130 ../abc-settings-page.php:75
+msgid "Safari"
+msgstr "ספארי"
+
+#: ../abc-output.php:134 ../abc-settings-page.php:80
+msgid "Opera"
+msgstr "אופרה"
+
+#: ../abc-output.php:138 ../abc-settings-page.php:65
+msgid "Internet Explorer"
+msgstr "אינטרנט אקספלורר"
+
+#: ../abc-output.php:142
+msgid "other"
+msgstr "אחר"
+
+#: ../abc-core.php:155
+msgid "You are using a web browser not supported by this website!"
+msgstr "הנכם משתמשים בדפדפן שאינו נתמך על ידי האתר הזה!"
+
+#: ../abc-core.php:156
+msgid ""
+"You are using a web browser that is not supported by this website. This "
+"means that some function may not work as supposed which can result in "
+"strange behaviors when browsing around. Use or upgrade/install on of the "
+"following browsers to take full advantage of this website. - Thank you!"
+msgstr ""
+"הנכם משתמשים בדפדפן שאינו נתמך על ידי אתר זה. המשמעות היא שחלק מהפעולות באתר "
+"לא יעבדו כפי שהן אמורות לעבוד במקור ותיתכן התנהגות מוזרה כאשר גולשים באתר. "
+"אנא השתמשו או התקינו אחד מהדפדפנים הבאים על מנת לעשות שימוש מלא באתר - תודה "
+"רבה!"
+
+#: ../abc-settings-page.php:15
+msgid "You do not have sufficient permissions to access this page."
+msgstr "אין לך הרשאות מספיקות על מנת לצפות בדף זה"
+
+#: ../abc-settings-page.php:22
+msgid "Advanced Browser Check"
+msgstr "בדיקת דפדפנים מתקדמת"
+
+#: ../abc-settings-page.php:31
+msgid "Title"
+msgstr "כותרת"
+
+#: ../abc-settings-page.php:39
+msgid "Message"
+msgstr "הודעה"
+
+#: ../abc-settings-page.php:47
+msgid "Let user hide the popup"
+msgstr "אפשר למשתמשים להחביא את הפופ-אפ"
+
+#: ../abc-settings-page.php:48
+msgid ""
+"Let the user hide the popup and use your site. The popup will be hidden for "
+"24h only, this is set by a cookie"
+msgstr ""
+"אפשר למשתמשים להחביא את הפופ-אפ ולהשתמש באתר. הפופ-אפ יהיה מוסתר למשך 24 "
+"שעות. הפעולה הזו נעשית על ידי עוגיית מטמון."
+
+#: ../abc-settings-page.php:52
+msgid "Yes"
+msgstr "כן"
+
+#: ../abc-settings-page.php:58
+msgid "Choose browsers to link"
+msgstr "בחרו את הדפדפנים לקשר אליהם"
+
+#: ../abc-settings-page.php:59
+msgid ""
+"This is the browsers that you can display a link to and tell your visitor to "
+"use"
+msgstr ""
+"אלו הם הדפדפנים שאתם יכולים להציג אליהם קישור שהמשתמשים שלכם יוכלו ללחוץ עליו"
+
+#: ../abc-settings-page.php:93
+msgid "Browsers and versions to check"
+msgstr "לבדוק את הדפדפנים והגרסאות האלו:"
+
+#: ../abc-settings-page.php:125
+msgid "Do not block "
+msgstr "לא לחסום"
+
+#: ../abc-settings-page.php:129
+msgid " or lower"
+msgstr "או נמוך יותר"
+
+#: ../abc-settings-page.php:141
+msgid "Debug"
+msgstr "דיבאג"
+
+#: ../abc-settings-page.php:142
+msgid ""
+"Having problems. Activate debug and see what information the plugin detects "
+"about your browser. Debug is only visible for administrators!"
+msgstr ""
+"יש בעיות. אנא הפעילו את הדיבאג וצפו במידע שהתוסף מגלה על הדפדפן שלך. דיבאג "
+"זמין רק למנהלי האתר."
+
+#: ../abc-settings-page.php:155
+msgid "On"
+msgstr "פועל"
+
+#: ../abc-settings-page.php:157
+msgid "Off"
+msgstr "כבוי"
+
+#: ../abc-settings-page.php:166
+msgid "Save"
+msgstr "לשמור"
+
+#: General strings for WordPress plugin
+msgid ""
+"Tell IE users to change browser? Or is your site for Chrome only? Now you "
+"choose what browsers should trigger a warning popup or not on your site."
+msgstr ""
+"צריכים להודיע למשתמשים אינטרנט אקספלורר להחליף דפדפן? האתר שלך מיועד רק "
+"למשתמשי כרום? כעת אתה יכול לבחור אילו דפדפנים יפעילו פופ-אפ אזהרה באתר שלך."
+
+msgid "Mattias Hedman"
+msgstr "מתיאס הדמן"

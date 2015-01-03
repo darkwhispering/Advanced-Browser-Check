@@ -19,7 +19,7 @@ class ABC_Settings extends ABC_Core {
 
 	?>
 		<div class="wrap abc-settings">
-			<h2><?php _e('Advanced Browser Check'); ?></h2>
+			<h2><?php _e( 'Advanced Browser Check', 'advanced-browser-check' ); ?></h2>
 
 			<form method="post" action="options.php">
                 <?php wp_nonce_field('update-options'); ?>
@@ -28,7 +28,7 @@ class ABC_Settings extends ABC_Core {
                     <tbody>
                         <tr valign="top">
                             <th scope="row">
-                            	<label for="abc_title"><?php  _e('Title'); ?></label>
+                            	<label for="abc_title"><?php  _e( 'Title', 'advanced-browser-check' ); ?></label>
                             </th>
                             <td>
 								<input type="text" class="large-text" id="abc_title" name="abc_title" value="<?php echo $abc['title']; ?>">
@@ -36,7 +36,7 @@ class ABC_Settings extends ABC_Core {
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                            	<label for="abc_message"><?php _e('Message'); ?></label>
+                            	<label for="abc_message"><?php _e( 'Message', 'advanced-browser-check' ); ?></label>
                             </th>
                             <td>
 								<textarea class="large-text" id="abc_message" name="abc_message" cols="50" rows="8"><?php echo $abc['msg']; ?></textarea>
@@ -44,45 +44,45 @@ class ABC_Settings extends ABC_Core {
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                            	<?php _e('Let user hide the popup'); ?>
-                            	<p class="description"><?php _e('Let the user hide the popup and use your site. The popup will be hidden for 24h only, this is set by a cookie'); ?></p>
+                            	<?php _e( 'Let user hide the popup', 'advanced-browser-check'); ?>
+                            	<p class="description"><?php _e( 'Let the user hide the popup and use your site. The popup will be hidden for 24h only, this is set by a cookie', 'advanced-browser-check' ); ?></p>
                             </th>
                             <td>
                             	<label for="hide">
-									<input type="checkbox" id="abc_hide" name="abc_hide" value="yes" <?php echo !empty($abc['hide']) ? 'checked="checked"' : '' ?> /> <?php _e('Yes'); ?>
+									<input type="checkbox" id="abc_hide" name="abc_hide" value="yes" <?php echo !empty($abc['hide']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Yes', 'advanced-browser-check' ); ?>
 								</label>
                             </td>
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                            	<?php _e('Choose browsers to link'); ?>
-                            	<p class="description"><?php _e('This is the browsers that you can display a link to and tell ypur visitor to use'); ?></p>
+                            	<?php _e( 'Choose browsers to link', 'advanced-browser-check' ); ?>
+                            	<p class="description"><?php _e( 'These are the browsers that you can display a link to and tell your visitor to use', 'advanced-browser-check' ); ?></p>
                             </th>
                             <td>
                             	<ul>
                             		<li>
 										<label for="ie">
-											<input type="checkbox" id="ie" name="abc_show[ie]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo !empty($abc['show_browser']['ie']) ? 'checked="checked"' : '' ?> /> <?php _e('Internet Explorer'); ?>
+											<input type="checkbox" id="ie" name="abc_show[ie]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo !empty($abc['show_browser']['ie']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Internet Explorer', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="ff">
-											<input type="checkbox" id="ff" name="abc_show[ff]" value="http://www.mozilla.com/en-US/firefox/all.html" <?php echo !empty($abc['show_browser']['ff']) ? 'checked="checked"' : '' ?> /> <?php _e('Firefox'); ?>
+											<input type="checkbox" id="ff" name="abc_show[ff]" value="http://www.mozilla.com/en-US/firefox/all.html" <?php echo !empty($abc['show_browser']['ff']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Firefox', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="safari">
-											<input type="checkbox" id="safari" name="abc_show[safari]" value="http://www.apple.com/safari/download/" <?php echo !empty($abc['show_browser']['safari']) ? 'checked="checked"' : '' ?> /> <?php _e('Safari'); ?>
+											<input type="checkbox" id="safari" name="abc_show[safari]" value="http://www.apple.com/safari/download/" <?php echo !empty($abc['show_browser']['safari']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Safari', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="opera">
-											<input type="checkbox" id="opera" name="abc_show[opera]" value="http://www.opera.com/download/" <?php echo !empty($abc['show_browser']['opera']) ? 'checked="checked"' : '' ?> /> <?php _e('Opera'); ?>
+											<input type="checkbox" id="opera" name="abc_show[opera]" value="http://www.opera.com/download/" <?php echo !empty($abc['show_browser']['opera']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Opera', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="chrome">
-											<input type="checkbox" id="chrome" name="abc_show[chrome]" value="https://www.google.com/chrome" <?php echo !empty($abc['show_browser']['chrome']) ? 'checked="checked"' : '' ?> /> <?php _e('Chrome'); ?>
+											<input type="checkbox" id="chrome" name="abc_show[chrome]" value="https://www.google.com/chrome" <?php echo !empty($abc['show_browser']['chrome']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Chrome', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 								</ul>
@@ -90,43 +90,47 @@ class ABC_Settings extends ABC_Core {
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                            	<?php _e('Browsers and versions to check'); ?>
+                            	<?php _e( 'Browsers and versions to check', 'advanced-browser-check' ); ?>
                             </th>
                             <td>
                         		<ul>
 	                            	<?php $browsers = $this->default_browsers(); ?>
 									<?php $browser_selects = ''; ?>
 									<?php foreach($browsers as $key => $browser) : ?>
+                                        <?php
+                                            switch($key) {
+                                                case $key == 'ff' :
+                                                    $browser_name = 'Firefox';
+                                                break;
+                                                case $key == 'ie' :
+                                                    $browser_name = 'Internet Explorer';
+                                                break;
+                                                case $key == 'safari' :
+                                                    $browser_name = 'Safari';
+                                                break;
+                                                case $key == 'opera' :
+                                                    $browser_name = 'Opera';
+                                                break;
+                                                case $key == 'chrome' :
+                                                    $browser_name = 'Chrome';
+                                                break;
+                                            }
+                                        ?>
 										<li>
 											<?php $browser_selects .= $key.','; ?>
+                                            <span class="abc-browser-select-name">
+                                                <?php _e( $browser_name, 'advanced-browser-check' ); ?>:
+                                            </span>
 											<select name="abc_check[<?php echo $key; ?>]">
-												<?php
-													switch($key) {
-														case $key == 'ff' :
-															$browser_name = 'Firefox';
-														break;
-														case $key == 'ie' :
-															$browser_name = 'Internet Explorer';
-														break;
-														case $key == 'safari' :
-															$browser_name = 'Safari';
-														break;
-														case $key == 'opera' :
-															$browser_name = 'Opera';
-														break;
-														case $key == 'chrome' :
-															$browser_name = 'Chrome';
-														break;
-													}
-												?>
 												<?php foreach($browser as $b) : ?>
 													<?php if ($b == '0') : ?>
 														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
-															<?php _e('Do not block ').$browser_name; ?>
+															<?php _e( 'Do not block ', 'advanced-browser-check' ); ?>
 														</option>
 													<?php else : ?>
 														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
-															<?php echo $browser_name .' '. $b; ?> <?php _e(' or lower'); ?>
+															<?php //echo $browser_name .' '. $b; ?> <?php //_e( ' or lower', 'advanced-browser-check' ); ?>
+                                                            <?php _e( 'version ', 'advanced-browser-check' ); echo $b; ?> <?php _e( ' or lower', 'advanced-browser-check' ); ?>
 														</option>
 													<?php endif; ?>
 												<?php endforeach; ?>
@@ -138,8 +142,8 @@ class ABC_Settings extends ABC_Core {
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                                <?php _e('Debug'); ?>
-                                <p class="description"><?php _e('Having problems. Activate debug and see what information the plugin detects about your browser. Debug is only visible for administrators!'); ?></p>
+                                <?php _e( 'Debug', 'advanced-browser-check' ); ?>
+                                <p class="description"><?php _e( 'Having problems. Activate debug and see what information the plugin detects about your browser. Debug is only visible for administrators!', 'advanced-browser-check' ); ?></p>
                             </th>
                             <td>
                                 <?php
@@ -152,9 +156,9 @@ class ABC_Settings extends ABC_Core {
                                 ?>
 
                                 <label for="hide">
-                                    <input type="radio" id="abc_debug" name="abc_debug" value="on" <?php echo $debug_on; ?> /> <?php _e('On'); ?>
+                                    <input type="radio" id="abc_debug" name="abc_debug" value="on" <?php echo $debug_on; ?> /> <?php _e( 'On', 'advanced-browser-check' ); ?>
                                     <br/>
-                                    <input type="radio" id="abc_debug" name="abc_debug" value="off" <?php echo $debug_off; ?> /> <?php _e('Off'); ?>
+                                    <input type="radio" id="abc_debug" name="abc_debug" value="off" <?php echo $debug_off; ?> /> <?php _e( 'Off', 'advanced-browser-check' ); ?>
                                 </label>
                             </td>
                         </tr>
@@ -163,7 +167,7 @@ class ABC_Settings extends ABC_Core {
 				<div class="form-row">
 					<input type="hidden" name="action" value="update" />
 					<input type="hidden" name="page_options" value="abc_title,abc_message,abc_hide,abc_show,abc_check,abc_debug" />
-					<input type="submit" name="submit" value="Save" class="button-primary save" />
+					<input type="submit" name="submit" value="<?php _e( 'Save', 'advanced-browser-check' ); ?>" class="button-primary save" />
 				</div>
 			</form>
 		</div>

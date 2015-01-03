@@ -40,6 +40,9 @@
     opacity: 0.6;
     transition: opacity .5s;
 }
+.rtl .adv_browser_check a.abc-hide {
+    left: 10px;
+}
 
 .adv_browser_check a.abc-hide:hover {
     opacity: 0.5;
