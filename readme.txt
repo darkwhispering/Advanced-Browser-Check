@@ -28,9 +28,16 @@ If you allow users to hide the popup, a cookie is set that expires after 24h. Af
 
 This plugin is tested and works with the WP Super Cache and W3 Total Cache plugins. It is also tested and working on WordPress Networks.
 
+Supported languages
+
+* English
+* Hebrew
+
+Missing a language? Want to add it? Fork the plugin from my [Bitbucket](https://bitbucket.org/silentium/advanced-browser-check), do the translation, do a pull request and I will happily add it.
+
 **If you run into problems, please check the [FAQ](http://wordpress.org/plugins/advanced-browser-check/faq/). If you don't find and answer there, look in the [support section](http://wordpress.org/support/plugin/advanced-browser-check) if anyone else have/had the same isssue and if it has been resolved. Creating a new support ticket should always be your last resort for help. Thanks.**
 
-*There is versions added of browsers that it not yet released as stable versions. This is to minimize the need of an plugin update in the future when new browsers are released and to let users try the plugin with beta and alpha version of the browsers browsers. I will do my best to keep this plugin updated with the latest versions of available browsers.*
+*There is versions added of browsers that it not yet released as stable versions. This is to minimize the need of an plugin update in the future when new browsers are released and to let users try the plugin with beta and alpha version of the browsers. I will do my best to keep this plugin updated with the latest versions of available browsers.*
 
 == Installation ==
 
@@ -39,16 +46,9 @@ This plugin is tested and works with the WP Super Cache and W3 Total Cache plugi
 
 == Frequently Asked Questions ==
 
-= I get "Fatal error: Allowed memory size of 67108864 bytes exhausted..." =
-
-This plugin can be a little heave the first time it is running, when creating the configuration and cache files. If you see a memory error like this it means the plugin are trying to use more memory then it is allowed to. The solution is simple though, bump up the limit.
-
-You might need to contact your hosting provider to help you, or follow [this](http://bestphphosting.net/how-to-increase-php-memory-limit/) or [this](http://www.devtnt.co/how-to-increase-php-memory-limit-on-godaddy-hosting/) guide.
-
 = I get "Parse error: syntax error, unexpected T_STRING, expecting T_CONSTANT_ENCAPSED_STRING..."  =
 
 If you see a PHP error similar to this, that means you have a PHP version below 5.3. The plugin uses PHP Namespaces and PHP 5.3 is required as minimum. Please contact your hosting company and let then know you need PHP upgraded.
-
 
 = I see a 404 error in the console =
 
@@ -67,7 +67,7 @@ I test the plugin before every update on a clean WordPress installation with no 
 Before posting a support thread, please try to inactivate all your plugins except Advanced Browser Check and try again. If you still have the issue, try with another theme, or install a clean WordPress is a subfolder so you can test the plugin on your server with a clena WordPress installation.
 
 = I have selected not to block Chrome (or any other browser), but I still get the overlay =
-Please read the above answer and perform the same tests before you start a new support thread. You should also turn on debugging so you see what browser the plugin detects you are using.
+Please read the above answer and perform the same tests before you start a new support thread. You should also turn on debugging so you see what browser the plugin detects.
 
 = I have performed all test above, still not working =
 Okay, might be time to start a support thread, but first, please see if someone else have had your issue and see if they might found a solution before you start a new thread.
@@ -79,12 +79,15 @@ If you create a new support post, please provide as much info as possible. Like 
 1. Frontend screenshot
 2. Backend screenshot
 
-== Upgrade Notice ==
-
-= 3.0.0 and above =
-Version 3+ includes a lot of improvments and a complete rewrite to make the plugin better and more stable.
-
 == Changelog ==
+
+= 4.1.0 (Jan 2015) =
+* Some spellings corrections of default message and admin settings panel. - [Thanks chrisscottuk](https://wordpress.org/support/topic/spelling-correction?replies=2)
+* Small layout changes to settings panel.
+* RTL support - [thanks barzik](https://wordpress.org/support/topic/works-for-ie-thanks?replies=4#post-)
+* Added translation support, i18n - [thanks barzik](https://wordpress.org/support/topic/works-for-ie-thanks?replies=4#post-)
+* Added Hebrew translation - [thanks barzik](https://wordpress.org/support/topic/works-for-ie-thanks?replies=4#post-)
+* Updated browser versions.
 
 = 4.0.2 =
 * Fixed issue where some Chrome and Safari browsers got detected as Internet Explorer on Windows platforms.
