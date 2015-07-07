@@ -3,7 +3,7 @@ Contributors: darkwhispering
 Donate link: http://darkwhispering.com/by-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
-Tested up to: 4.1.0
+Tested up to: 4.2.2
 Stable tag: 4.1.0
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
@@ -33,7 +33,7 @@ Supported languages
 * English
 * Hebrew
 
-Missing a language? Want to add it? Fork the plugin from my [Bitbucket](https://bitbucket.org/silentium/advanced-browser-check), do the translation, do a pull request and I will happily add it.
+Missing a language? Want to add it? Fork the plugin from my [Github](https://github.com/darkwhispering/Advanced-Browser-Check), do the translation, do a pull request and I will happily add it.
 
 **If you run into problems, please check the [FAQ](http://wordpress.org/plugins/advanced-browser-check/faq/). If you don't find and answer there, look in the [support section](http://wordpress.org/support/plugin/advanced-browser-check) if anyone else have/had the same isssue and if it has been resolved. Creating a new support ticket should always be your last resort for help. Thanks.**
 
