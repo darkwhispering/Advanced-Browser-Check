@@ -4,15 +4,13 @@ class ABC_Settings extends ABC_Core {
 
     public function __construct()
     {
-
         parent::__construct();
-
     }
 
 	function settings_panel()
     {
-		if (!current_user_can('manage_options')) {
-			wp_die(__('You do not have sufficient permissions to access this page.'));
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
 
 		$abc = $this->default_setting_values();
@@ -22,7 +20,7 @@ class ABC_Settings extends ABC_Core {
 			<h2><?php _e( 'Advanced Browser Check', 'advanced-browser-check' ); ?></h2>
 
 			<form method="post" action="options.php">
-                <?php wp_nonce_field('update-options'); ?>
+                <?php wp_nonce_field( 'update-options' ); ?>
 
 				<table class="form-table abc-settings">
                     <tbody>
@@ -49,7 +47,7 @@ class ABC_Settings extends ABC_Core {
                             </th>
                             <td>
                             	<label for="hide">
-									<input type="checkbox" id="abc_hide" name="abc_hide" value="yes" <?php echo !empty($abc['hide']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Yes', 'advanced-browser-check' ); ?>
+									<input type="checkbox" id="abc_hide" name="abc_hide" value="yes" <?php echo ! empty( $abc['hide'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Yes', 'advanced-browser-check' ); ?>
 								</label>
                             </td>
                         </tr>
@@ -62,27 +60,27 @@ class ABC_Settings extends ABC_Core {
                             	<ul>
                             		<li>
 										<label for="ie">
-											<input type="checkbox" id="ie" name="abc_show[ie]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo !empty($abc['show_browser']['ie']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Internet Explorer', 'advanced-browser-check' ); ?>
+											<input type="checkbox" id="ie" name="abc_show[ie]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo ! empty( $abc['show_browser']['ie'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Internet Explorer', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="ff">
-											<input type="checkbox" id="ff" name="abc_show[ff]" value="http://www.mozilla.com/en-US/firefox/all.html" <?php echo !empty($abc['show_browser']['ff']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Firefox', 'advanced-browser-check' ); ?>
+											<input type="checkbox" id="ff" name="abc_show[ff]" value="http://www.mozilla.com/en-US/firefox/all.html" <?php echo ! empty( $abc['show_browser']['ff'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Firefox', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="safari">
-											<input type="checkbox" id="safari" name="abc_show[safari]" value="http://www.apple.com/safari/download/" <?php echo !empty($abc['show_browser']['safari']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Safari', 'advanced-browser-check' ); ?>
+											<input type="checkbox" id="safari" name="abc_show[safari]" value="http://www.apple.com/safari/download/" <?php echo ! empty( $abc['show_browser']['safari'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Safari', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="opera">
-											<input type="checkbox" id="opera" name="abc_show[opera]" value="http://www.opera.com/download/" <?php echo !empty($abc['show_browser']['opera']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Opera', 'advanced-browser-check' ); ?>
+											<input type="checkbox" id="opera" name="abc_show[opera]" value="http://www.opera.com/download/" <?php echo ! empty( $abc['show_browser']['opera'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Opera', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
 										<label for="chrome">
-											<input type="checkbox" id="chrome" name="abc_show[chrome]" value="https://www.google.com/chrome" <?php echo !empty($abc['show_browser']['chrome']) ? 'checked="checked"' : '' ?> /> <?php _e( 'Chrome', 'advanced-browser-check' ); ?>
+											<input type="checkbox" id="chrome" name="abc_show[chrome]" value="https://www.google.com/chrome" <?php echo ! empty( $abc['show_browser']['chrome'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Chrome', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 								</ul>
@@ -96,40 +94,44 @@ class ABC_Settings extends ABC_Core {
                         		<ul>
 	                            	<?php $browsers = $this->default_browsers(); ?>
 									<?php $browser_selects = ''; ?>
-									<?php foreach($browsers as $key => $browser) : ?>
+									<?php foreach ( $browsers as $key => $browser ) : ?>
                                         <?php
-                                            switch($key) {
+                                            switch( $key )
+                                            {
                                                 case $key == 'ff' :
                                                     $browser_name = 'Firefox';
-                                                break;
+                                                    break;
+
                                                 case $key == 'ie' :
                                                     $browser_name = 'Internet Explorer';
-                                                break;
+                                                    break;
+
                                                 case $key == 'safari' :
                                                     $browser_name = 'Safari';
-                                                break;
+                                                    break;
+
                                                 case $key == 'opera' :
                                                     $browser_name = 'Opera';
-                                                break;
+                                                    break;
+
                                                 case $key == 'chrome' :
                                                     $browser_name = 'Chrome';
-                                                break;
+                                                    break;
                                             }
                                         ?>
 										<li>
-											<?php $browser_selects .= $key.','; ?>
+											<?php $browser_selects .= $key . ','; ?>
                                             <span class="abc-browser-select-name">
                                                 <?php _e( $browser_name, 'advanced-browser-check' ); ?>:
                                             </span>
 											<select name="abc_check[<?php echo $key; ?>]">
-												<?php foreach($browser as $b) : ?>
-													<?php if ($b == '0') : ?>
-														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
+												<?php foreach ( $browser as $b ) : ?>
+													<?php if ( $b == '0' ) : ?>
+														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : ''; ?>>
 															<?php _e( 'Do not block ', 'advanced-browser-check' ); ?>
 														</option>
 													<?php else : ?>
-														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : '' ?>>
-															<?php //echo $browser_name .' '. $b; ?> <?php //_e( ' or lower', 'advanced-browser-check' ); ?>
+														<option value="<?php echo $b; ?>" <?php echo $abc['check_browser'][$key] == $b ? 'selected="selected"' : ''; ?>>
                                                             <?php _e( 'version ', 'advanced-browser-check' ); echo $b; ?> <?php _e( ' or lower', 'advanced-browser-check' ); ?>
 														</option>
 													<?php endif; ?>
@@ -149,8 +151,9 @@ class ABC_Settings extends ABC_Core {
                                 <?php
                                     $debug_on = $debug_off = null;
 
-                                    if (!empty($abc['debug'])) {
-                                        $debug_on = $abc['debug'] === 'on' ? 'checked="checked"' : '';
+                                    if ( ! empty( $abc['debug'] ) )
+                                    {
+                                        $debug_on  = $abc['debug'] === 'on' ? 'checked="checked"' : '';
                                         $debug_off = $abc['debug'] === 'off' ? 'checked="checked"' : '';
                                     }
                                 ?>
@@ -183,8 +186,7 @@ function abc_settings()
 
 function abc_adminmenu()
 {
-	add_submenu_page('options-general.php', 'Advanced Browser Check', 'Advanced Browser Check', 'manage_options', 'advanced-browser-check', 'abc_settings');
+	add_submenu_page( 'options-general.php', 'Advanced Browser Check', 'Advanced Browser Check', 'manage_options', 'advanced-browser-check', 'abc_settings' );
 }
 
-add_action('admin_menu','abc_adminmenu');
-?>
+add_action( 'admin_menu','abc_adminmenu' );
