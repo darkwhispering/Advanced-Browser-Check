@@ -4,7 +4,7 @@ Donate link: http://darkwhispering.com/buy-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
 Tested up to: 4.2.2
-Stable tag: 4.2.0
+Stable tag: 4.2.1
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
 
@@ -81,6 +81,9 @@ If you create a new support post, please provide as much info as possible. Like 
 2. Backend screenshot
 
 == Changelog ==
+
+= 4.2.1 =
+* Fixed faulty closing tag for the title.
 
 = 4.2.0 =
 * Updated all browser icons.
