@@ -67,7 +67,7 @@ class ABC_Output extends ABC_Core {
 			if ( $debug ) { $html .= $debug_html; }
 
 			$html .= '<div class="adv_browser_check_msg '.$old_ie.'">';
-				$html .= '<h1>'. $title .'</h2>';
+				$html .= '<h1>'. $title .'</h1>';
 				$html .= nl2br($msg);
 			$html .= '</div>';
 			$html .= '<ul class="adv_browser_check_icons '.$old_ie.'">';
