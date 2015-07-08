@@ -10,10 +10,10 @@
 }
 
 .adv_browser_check {
-    width: 100%;
+    width: 90%;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 5%;
+    left: 5%;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     background: #fff;
     color: #444;
@@ -37,7 +37,7 @@
     width: 30px;
     background: url('../img/close.png');
     display: block;
-    opacity: 0.6;
+    opacity: 0.4;
     transition: opacity .5s;
 }
 .rtl .adv_browser_check a.abc-hide {
@@ -45,7 +45,7 @@
 }
 
 .adv_browser_check a.abc-hide:hover {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .adv_browser_check_msg {
