@@ -87,6 +87,8 @@ If you create a new support post, please provide as much info as possible. Like 
 * Updated source code to better follow the Wordpress coding guidelines.
 * Added french translation. Translated by [koudjdj](https://github.com/koudjdj).
 * Updated browser version list.
+* Added spacing around the overlay modal.
+* Added description to message field on settings page about use of HTML code.
 
 = 4.1.0 =
 * Some spellings corrections of default message and admin settings panel. - [Thanks chrisscottuk](https://wordpress.org/support/topic/spelling-correction?replies=2)
