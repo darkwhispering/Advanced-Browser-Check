@@ -35,6 +35,7 @@ class ABC_Settings extends ABC_Core {
                         <tr valign="top">
                             <th scope="row">
                             	<label for="abc_message"><?php _e( 'Message', 'advanced-browser-check' ); ?></label>
+                                <p class="description"><?php _e( 'You can use basic HTML code in your message. Like &lt;strong&gt;, &lt;i&gt;, &lt;a&gt; and &lt;img&gt;', 'advanced-browser-check' ); ?></p>
                             </th>
                             <td>
 								<textarea class="large-text" id="abc_message" name="abc_message" cols="50" rows="8"><?php echo $abc['msg']; ?></textarea>
