@@ -1,6 +1,6 @@
 === Advanced Browser Check ===
 Contributors: darkwhispering
-Donate link: http://darkwhispering.com/by-me-a-beer
+Donate link: http://darkwhispering.com/buy-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
 Requires at least: 3.0.0
 Tested up to: 4.2.2
