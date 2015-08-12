@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Browser Check\n"
+"POT-Creation-Date: 2015-08-12 15:28+0200\n"
+"PO-Revision-Date: 2015-08-12 15:49+0200\n"
+"Last-Translator: Patrick Niemann <niemann.patrick@gmail.com>\n"
+"Language-Team: Patrick Niemann <niemann.patrick@gmail.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../abc-core.php:145
+msgid "You are using a web browser not supported by this website!"
+msgstr "Sie benutzen einen nicht unterstützten Webbrowser."
+
+#: ../abc-output.php:108 ../abc-settings-page.php:69
+msgid "Firefox"
+msgstr "Firefox"
+
+#: ../abc-output.php:112 ../abc-settings-page.php:84
+msgid "Chrome"
+msgstr "Chrome"
+
+#: ../abc-output.php:116 ../abc-settings-page.php:74
+msgid "Safari"
+msgstr "Safari"
+
+#: ../abc-output.php:120 ../abc-settings-page.php:79
+msgid "Opera"
+msgstr "Opera"
+
+#: ../abc-output.php:124 ../abc-settings-page.php:64
+msgid "Internet Explorer"
+msgstr "Internet Explorer"
+
+#: ../abc-output.php:128
+msgid "other"
+msgstr "andere"
+
+#: ../abc-core.php:156
+msgid "You are using a web browser that is not supported by this website. This means that some functionality may not work as intended. This may result in strange behaviors when browsing around. Use or upgrade/install one of the following browsers to take full advantage of this website. - Thank you!"
+msgstr "Sie verwenden einen Webbrowser, der von dieser Website nicht unterstützt wird. Das heißt, die Website kann nicht fehlerfrei angezeigt werden. Wir empfehlen, den Browser zu aktualisieren oder einen anderen, aktuellen Browser zu verwenden. Vielen Dank!"
+
+#: ../abc-settings-page.php:13
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Du hast keine Zugriffsrechte für diese Seite."
+
+#: ../abc-settings-page.php:20
+msgid "Advanced Browser Check"
+msgstr "Advanced Browser Check"
+
+#: ../abc-settings-page.php:29
+msgid "Title"
+msgstr "Titel"
+
+#: ../abc-settings-page.php:37
+msgid "Message"
+msgstr "Nachricht"
+
+#: ../abc-settings-page.php:38
+msgid "You can use basic HTML code in your message. Like &lt;strong&gt;, &lt;i&gt;, &lt;a&gt; and &lt;img&gt;"
+msgstr "Du kannst einfachen HTML-Code verwenden. Zum Beispiel &lt;strong&gt;, &lt;i&gt;, &lt;a&gt; und &lt;img&gt;"
+
+#: ../abc-settings-page.php:46
+msgid "Let user hide the popup"
+msgstr "Erlaube Nutzern das Popup zu schließen"
+
+#: ../abc-settings-page.php:47
+msgid "Let the user hide the popup and use your site. The popup will be hidden for 24h only, this is set by a cookie"
+msgstr "Das Popup wird für 24 Std. über einen Cookie ausgeblendet."
+
+#: ../abc-settings-page.php:51
+msgid "Yes"
+msgstr "Ja"
+
+#: ../abc-settings-page.php:57
+msgid "Choose browsers to link"
+msgstr "Wähle die zu verlinkenden Browser"
+
+#: ../abc-settings-page.php:58
+msgid "These are the browsers that you can display a link to and tell your visitor to use"
+msgstr "Diese Browser können in dem Popup angezeigt werden, damit sie vom Nutzer herunterladen werden können."
+
+#: ../abc-settings-page.php:92
+msgid "Browsers and versions to check"
+msgstr "Browser und Versionen die blockiert werden sollen"
+
+#: ../abc-settings-page.php:132
+msgid "Do not block "
+msgstr "Nicht blockieren"
+
+#: ../abc-settings-page.php:136
+msgid "version "
+msgstr "Version "
+
+#: ../abc-settings-page.php:136
+msgid " or lower"
+msgstr " oder kleiner"
+
+#: ../abc-settings-page.php:148
+msgid "Debug"
+msgstr "Debug"
+
+#: ../abc-settings-page.php:149
+msgid "Having problems. Activate debug and see what information the plugin detects about your browser. Debug is only visible for administrators!"
+msgstr "Probleme? Aktiviere den Debug-Modus und sehe die Informationen, die das Plugin erkennt. Der Debug-Modus ist nur sichtbar für Administratoren!"
+
+#: ../abc-settings-page.php:163
+msgid "On"
+msgstr "An"
+
+#: ../abc-settings-page.php:165
+msgid "Off"
+msgstr "Aus"
+
+#: ../abc-settings-page.php:174
+msgid "Save"
+msgstr "Speichern"
+
+#: General strings for WordPress plugin
+msgid "Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site."
+msgstr "IE Nutzer sollen ihren Browser wechseln? Oder ist deine Seite nur für Chrome? Wähle aus auf welchen Browserversionen eine Warnmeldung erscheinen soll."
+
+msgid "Mattias Hedman"
+msgstr "Mattias Hedman"
