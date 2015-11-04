@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Browser Check\n"
+"POT-Creation-Date: 2015-11-04 20:21+0100\n"
+"PO-Revision-Date: 2015-11-04 20:34+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.3\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"Last-Translator: Kenneth Knudsen <kk@kenneth-knudsen.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: da\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../abc-output.php:122 ../abc-settings-page.php:70
+msgid "Firefox"
+msgstr "Firefox"
+
+#: ../abc-output.php:126 ../abc-settings-page.php:85
+msgid "Chrome"
+msgstr "Chrome"
+
+#: ../abc-output.php:130 ../abc-settings-page.php:75
+msgid "Safari"
+msgstr "Safari"
+
+#: ../abc-output.php:134 ../abc-settings-page.php:80
+msgid "Opera"
+msgstr "Opera"
+
+#: ../abc-output.php:138 ../abc-settings-page.php:65
+msgid "Internet Explorer"
+msgstr "Internet Explorer"
+
+#: ../abc-output.php:142
+msgid "other"
+msgstr "andet"
+
+#: ../abc-core.php:155
+msgid "You are using a web browser not supported by this website!"
+msgstr "Du bruger en webbrowser der ikke understøttes af denne hjemmeside!"
+
+#: ../abc-core.php:156
+msgid ""
+"You are using a web browser that is not supported by this website. This "
+"means that some functionality may not work as intended. This may result in "
+"strange behaviors when browsing around. Use or upgrade/install one of the "
+"following browsers to take full advantage of this website. - Thank you!"
+msgstr ""
+"Du bruger en webbrowser, der ikke understøttes af denne hjemmeside. Det "
+"betyder, at nogle funktioner ikke fungerer efter hensigten. Du vil opleve "
+"at siden vises mærkeligt, når du browser rundt. Hvis du vil se siden "
+"korrekt kan du bruge eller opgradere/installere et af de følgende browsere. "
+"-Tak!"
+
+#: ../abc-settings-page.php:15
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Du har ikke de nødvendige rettigheder for at kunne tilgå denne side."
+
+#: ../abc-settings-page.php:22
+msgid "Advanced Browser Check"
+msgstr "Avanceret"
+
+#: ../abc-settings-page.php:31
+msgid "Title"
+msgstr "Titel"
+
+#: ../abc-settings-page.php:39
+msgid "Message"
+msgstr "Besked"
+
+#: ../abc-settings-page.php:47
+msgid "Let user hide the popup"
+msgstr "Lad brugeren skjule popup’en"
+
+#: ../abc-settings-page.php:48
+msgid ""
+"Let the user hide the popup and use your site. The popup will be hidden for "
+"24h only, this is set by a cookie"
+msgstr ""
+"Lad brugeren skjule popup’en på din side. Popup’en vil være skjult i 24 "
+"timer (Dette er sat af en cookie)"
+
+#: ../abc-settings-page.php:52
+msgid "Yes"
+msgstr "Ja"
+
+#: ../abc-settings-page.php:58
+msgid "Choose browsers to link"
+msgstr "Vælg et link til browseren"
+
+#: ../abc-settings-page.php:59
+msgid ""
+"These are the browsers that you can display a link to and tell your visitor "
+"to use"
+msgstr ""
+"Her kan du se hvilke browsere dine brugere kan få et link til for at "
+"opgraderes deres browser"
+
+#: ../abc-settings-page.php:93
+msgid "Browsers and versions to check"
+msgstr "Browser og version check"
+
+#: ../abc-settings-page.php:128
+msgid "Do not block "
+msgstr "Blocker ikke"
+
+#: ../abc-settings-page.php:133
+msgid "version "
+msgstr "version"
+
+#: ../abc-settings-page.php:133
+msgid " or lower"
+msgstr "eller lavere"
+
+#: ../abc-settings-page.php:145
+msgid "Debug"
+msgstr "debug"
+
+#: ../abc-settings-page.php:146
+msgid ""
+"Having problems. Activate debug and see what information the plugin detects "
+"about your browser. Debug is only visible for administrators!"
+msgstr ""
+"Oplever du problemer? Aktiver debug og se hvilke informationer plugin’et "
+"finder om din browser (Debug er kun synlig for administratorer)"
+
+#: ../abc-settings-page.php:159
+msgid "On"
+msgstr "Aktiveret"
+
+#: ../abc-settings-page.php:161
+msgid "Off"
+msgstr "Deaktiveret"
+
+#: ../abc-settings-page.php:170
+msgid "Save"
+msgstr "Gem"
+
+#: General strings for WordPress plugin
+msgid ""
+"Tell IE users to change browser? Or is your site for Chrome only? Now you "
+"choose what browsers should trigger a warning popup or not on your site."
+msgstr ""
+"Fortæl IE brugere de skal skifte browser? Eller er din side kun til Chrome? "
+"Vælg hvilken browser der skal udløse popup’en på din side."
+
+msgid "Mattias Hedman"
+msgstr "Mattias Hedman"
