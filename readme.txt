@@ -33,6 +33,8 @@ Supported languages
 * English
 * Hebrew
 * French
+* German
+* Danish
 
 Missing a language? Want to add it? Fork the plugin from my [Github](https://github.com/darkwhispering/Advanced-Browser-Check), do the translation, do a pull request and I will happily add it.
 
@@ -84,6 +86,8 @@ If you create a new support post, please provide as much info as possible. Like 
 
 = 4.3.0 =
 * Tested on Wordpress 4.4
+* Added German translation, thanks [panic175](https://github.com/panic175)
+* Added Danish translation, thanks [kennethknudsen](https://github.com/kennethknudsen)
 
 = 4.2.1 =
 * Fixed faulty closing tag for the title.
