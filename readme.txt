@@ -88,6 +88,7 @@ If you create a new support post, please provide as much info as possible. Like 
 * Tested on Wordpress 4.4
 * Added German translation, thanks [panic175](https://github.com/panic175)
 * Added Danish translation, thanks [kennethknudsen](https://github.com/kennethknudsen)
+* Updated browser versions list.
 
 = 4.2.1 =
 * Fixed faulty closing tag for the title.
