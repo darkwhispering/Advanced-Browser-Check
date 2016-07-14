@@ -3,7 +3,7 @@ Contributors: darkwhispering
 Donate link: http://darkwhispering.com/buy-me-a-beer
 Tags: firefox, chrome, opera, safari, internet explorer, egde, ie6, ie7, ie8, ie, ff, microsoft edge, microsoft, google chrome, mozilla firefox, google, mozilla, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer
 Requires at least: 3.0.0
-Tested up to: 4.4.0
+Tested up to: 4.5.2
 Stable tag: 5.0.0
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you can choose what browsers should trigger a warning popup or not on your site.
