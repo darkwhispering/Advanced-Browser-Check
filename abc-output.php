@@ -124,6 +124,10 @@ class ABC_Output extends ABC_Core {
 				$browser = __( 'Internet Explorer', 'advanced-browser-check' );
 				break;
 
+			case 'edge':
+				$browser = __( 'Edge', 'advanced-browser-check' );
+				break;
+
 			default:
 				$browser = __( 'other', 'advanced-browser-check' );
 				break;

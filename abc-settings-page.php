@@ -60,8 +60,8 @@ class ABC_Settings extends ABC_Core {
                             <td>
                             	<ul>
                             		<li>
-										<label for="ie">
-											<input type="checkbox" id="ie" name="abc_show[ie]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo ! empty( $abc['show_browser']['ie'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Internet Explorer', 'advanced-browser-check' ); ?>
+										<label for="edge">
+											<input type="checkbox" id="ie" name="abc_show[edge]" value="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx" <?php echo ! empty( $abc['show_browser']['edge'] ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Edge', 'advanced-browser-check' ); ?>
 										</label>
 									</li>
 									<li>
@@ -99,6 +99,9 @@ class ABC_Settings extends ABC_Core {
                                         <?php
                                             switch( $key )
                                             {
+                                                case $key == 'edge' :
+                                                    $browser_name = 'Edge';
+                                                    break;
                                                 case $key == 'ff' :
                                                     $browser_name = 'Firefox';
                                                     break;

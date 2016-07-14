@@ -1,26 +1,27 @@
 === Advanced Browser Check ===
 Contributors: darkwhispering
 Donate link: http://darkwhispering.com/buy-me-a-beer
-Tags: firefox, chrome, opera, safari, internet explorer, ie6, ie7, ie8, ie, ff, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer, browscap
+Tags: firefox, chrome, opera, safari, internet explorer, egde, ie6, ie7, ie8, ie, ff, microsoft edge, microsoft, google chrome, mozilla firefox, google, mozilla, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer
 Requires at least: 3.0.0
 Tested up to: 4.4.0
-Stable tag: 4.3.0
+Stable tag: 5.0.0
 
-Tell IE users to change browser? Or is your site for Chrome only? Now you choose what browsers should trigger a warning popup or not on your site.
+Tell IE users to change browser? Or is your site for Chrome only? Now you can choose what browsers should trigger a warning popup or not on your site.
 
 == Description ==
 
 **This plugin requires PHP 5.3 or above**
 
-This plugin give you the option to give a visitor of your site a warning popup if they use a browser that you don't support. For example, Internet Explorer 9 or lover.
+This plugin gives you the option to display a warning popup to your visitors if they use a browser that you don't support. For example, Internet Explorer 10 or lower.
 
-It supports the 5 largest and most popular browser on the market.
+It supports the 6 largest and most popular browser on the market.
 
 * Firefox
 * Chrome
 * Safari
 * Opera
 * Internet Explorer
+* Edge
 
 You can customize the warning message, choose what browsers download pages you want to display a link to, select what browsers and browser versions that should trigger the popup and if the user can or can't hide the popup.
 
@@ -83,6 +84,13 @@ If you create a new support post, please provide as much info as possible. Like 
 2. Backend screenshot
 
 == Changelog ==
+
+= 5.0.0 =
+* Added support for Microsoft new browser, Edge.
+* Removed Internet Explorer as an browser to display download link for. IE should never be recommended as a browser!
+* Fixed issues with detecting the latest versions of the Opera browser correctly.
+* Updated browser versions list.
+* Tested on Wordpress 4.5.
 
 = 4.3.0 =
 * Tested on Wordpress 4.4
