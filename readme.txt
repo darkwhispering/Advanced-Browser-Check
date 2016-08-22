@@ -1,16 +1,14 @@
 === Advanced Browser Check ===
 Contributors: darkwhispering
 Donate link: http://darkwhispering.com/buy-me-a-beer
-Tags: firefox, chrome, opera, safari, internet explorer, egde, ie6, ie7, ie8, ie, ff, microsoft edge, microsoft, google chrome, mozilla firefox, google, mozilla, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block internet explorer
+Tags: firefox, chrome, opera, safari, internet explorer, egde, ie6, ie7, ie8, ie, ff, microsoft edge, microsoft, google chrome, mozilla firefox, google, mozilla, plugin, browser, block browser, block ie6, browser check, check, popup, warning, old, old browser, stop, stop ie, block, block internet explorer
 Requires at least: 3.0.0
-Tested up to: 4.5.2
-Stable tag: 5.0.0
+Tested up to: 4.6.0
+Stable tag: 4.4.0
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you can choose what browsers should trigger a warning popup or not on your site.
 
 == Description ==
-
-**This plugin requires PHP 5.3 or above**
 
 This plugin gives you the option to display a warning popup to your visitors if they use a browser that you don't support. For example, Internet Explorer 10 or lower.
 
@@ -29,7 +27,7 @@ If you allow users to hide the popup, a cookie is set that expires after 24h. Af
 
 This plugin is tested and works with the WP Super Cache and W3 Total Cache plugins. It is also tested and working on WordPress Networks.
 
-Supported languages
+Supported languages (Only English language are guaranteed to be up to date!)
 
 * English
 * Hebrew
@@ -39,13 +37,13 @@ Supported languages
 
 Missing a language? Want to add it? Fork the plugin from my [Github](https://github.com/darkwhispering/Advanced-Browser-Check), do the translation, do a pull request and I will happily add it.
 
-**If you run into problems, please check the [FAQ](http://wordpress.org/plugins/advanced-browser-check/faq/). If you don't find and answer there, look in the [support section](http://wordpress.org/support/plugin/advanced-browser-check) if anyone else have/had the same isssue and if it has been resolved. Creating a new support ticket should always be your last resort for help. Thanks.**
+**If you run into problems, please check the [FAQ](http://wordpress.org/plugins/advanced-browser-check/faq/). If you don't find and answer there, look in the [support section](http://wordpress.org/support/plugin/advanced-browser-check) if anyone else have/had the same issue and if it has been resolved. Creating a new support ticket should always be your last resort for help. Thanks.**
 
-*There is versions added of browsers that it not yet released as stable versions. This is to minimize the need of an plugin update in the future when new browsers are released and to let users try the plugin with beta and alpha version of the browsers. I will do my best to keep this plugin updated with the latest versions of available browsers.*
+*There is versions added of browsers that is not yet released as stable versions. This is to minimize the need of an plugin update in the future when new browsers are released and to let users try the plugin with beta and alpha version of the browsers. I will do my best to keep this plugin updated with the latest versions of available browsers.*
 
 == Installation ==
 
-1. Upload the zipped file to yoursite/wp-content/plugins
+1. Recommended is to install the plugin via your Wordpress Admin dashboard **OR** you can download the plugin here and upload the zipped file to /wp-content/plugins
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
@@ -56,7 +54,7 @@ If you see a PHP error similar to this, that means you have a PHP version below 
 
 = I see a 404 error in the console =
 
-For some users, that have a very secure setup of WordPress can get this issue if they block direct access to plugin files. See [this support thread](http://wordpress.org/support/topic/failed-to-load-resource-404-advanced-browser-checkphp) for information and direcation of what might be the cause of your issue.
+For some users, that have a very secure setup of WordPress can get this issue if they block direct access to plugin files. See [this support thread](http://wordpress.org/support/topic/failed-to-load-resource-404-advanced-browser-checkphp) for information and direction of what might be the cause of your issue.
 
 = There is nothing! No overlay, no popup =
 The plugin requires that your theme have the wp_footer() function added. Without this, the plugin can't create the code it needs to place the overlay and popup on your site.
@@ -66,9 +64,9 @@ You also need to have wp_head() function added in your theme header for the scri
 = I only get a black overlay, no popup =
 You can get this for many reasons. It can be any of the plugins you have installed that is not compatible with my plugin. It can also be your theme.
 
-I test the plugin before every update on a clean WordPress installation with no other plugins activated or custom theme installed. Due to the large amount of 3rd party themes and plugins for Wordpess, it is impossible to guarantee that the plugin will work with them all.
+I test the plugin before every update on a clean WordPress installation with no other plugins activated or custom theme installed. Due to the large amount of 3rd party themes and plugins for Wordpress, it is impossible to guarantee that the plugin will work with them all.
 
-Before posting a support thread, please try to inactivate all your plugins except Advanced Browser Check and try again. If you still have the issue, try with another theme, or install a clean WordPress is a subfolder so you can test the plugin on your server with a clena WordPress installation.
+Before posting a support thread, please try to inactivate all your plugins except Advanced Browser Check and try again. If you still have the issue, try with another theme, or install a clean WordPress is a subfolder so you can test the plugin on your server with a clean WordPress installation.
 
 = I have selected not to block Chrome (or any other browser), but I still get the overlay =
 Please read the above answer and perform the same tests before you start a new support thread. You should also turn on debugging so you see what browser the plugin detects.
@@ -85,12 +83,12 @@ If you create a new support post, please provide as much info as possible. Like 
 
 == Changelog ==
 
-= 5.0.0 =
+= 4.4.0 =
 * Added support for Microsoft new browser, Edge.
-* Removed Internet Explorer as an browser to display download link for. IE should never be recommended as a browser!
 * Fixed issues with detecting the latest versions of the Opera browser correctly.
 * Updated browser versions list.
-* Tested on Wordpress 4.5.
+* Code cleanup.
+* Tested on Wordpress 4.6
 
 = 4.3.0 =
 * Tested on Wordpress 4.4

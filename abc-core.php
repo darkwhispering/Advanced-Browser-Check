@@ -1,8 +1,9 @@
 <?php
 
-class ABC_Core {
+class ABC_Core
+{
 
-    const BROWSER_UNKNOWN = 'unknown';
+    const UNKNOWN = 'unknown';
 
     const PLATFORM_ANDROID = 'android';
     const PLATFORM_IOS     = 'iOS';
@@ -12,99 +13,37 @@ class ABC_Core {
 
     static $this;
 
+    /**
+     * ABC_Core constructor.
+     */
     public function __construct()
     {
         self::$this;
 
-        add_action( 'init', array( $this, 'default_setting_values' ) ); // Default settings
-        add_action( 'wp_footer', array( $this, 'content_wrapper' ) ); // HTML wrapper
-        add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) ); // Needed scripts
-        add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) ); // Needed stylesheets
+        add_action( 'init', [ $this, 'default_setting_values' ] ); // Default settings
+        add_action( 'wp_footer', [ $this, 'content_wrapper' ] ); // HTML wrapper
+        add_action( 'wp_enqueue_scripts', [ $this, 'scripts' ] ); // Needed scripts
+        add_action( 'wp_enqueue_scripts', [ $this, 'styles' ] ); // Needed stylesheets
     }
 
     /**
-     * Get activ users browser details
-     * @return array [browser details]
+     * Get users browser details
+     *
+     * @return array
      */
     public function get_browser()
     {
-        $user_agent        = $_SERVER['HTTP_USER_AGENT'];
-        $browser_full_name = self::BROWSER_UNKNOWN;
-        $browser_name      = self::BROWSER_UNKNOWN;
-        $platform          = self::BROWSER_UNKNOWN;
-        $version           = self::BROWSER_UNKNOWN;
-        $short_name        = self::BROWSER_UNKNOWN;
-
-        // First get the platform
-        if ( preg_match( '/android/i', $user_agent ) )
-        {
-            $platform = self::PLATFORM_ANDROID;
-        }
-        elseif ( preg_match( '/iphone/i', $user_agent ) || preg_match( '/ipad/i', $user_agent ) || preg_match( '/ipod/i', $user_agent ) )
-        {
-            $platform = self::PLATFORM_IOS;
-        }
-        elseif ( preg_match( '/linux/i', $user_agent ) )
-        {
-            $platform = self::PLATFORM_LINUX;
-        }
-        elseif ( preg_match( '/macintosh|mac os x/i', $user_agent ) )
-        {
-            $platform = self::PLATFORM_MAC;
-        }
-        elseif ( preg_match( '/windows|win32/i', $user_agent ) )
-        {
-            $platform = self::PLATFORM_WINDOWS;
-        }
-
-        // Next get the name of the useragent yes seperately and for good reason
-        if ( preg_match( '/Opera/i',$user_agent ) || preg_match( '/OPR/i',$user_agent ))
-        {
-            $browser_full_name = 'Opera';
-            $browser_name      = 'Opera';
-            $short_name        = 'opera';
-        }
-        elseif ( preg_match( '/Edge/i',$user_agent ) )
-        {
-            $browser_full_name = 'Microsoft Edge';
-            $browser_name      = 'Edge';
-            $short_name        = 'edge';
-
-        } elseif ( preg_match( '/Firefox/i',$user_agent ) )
-        {
-            $browser_full_name = 'Mozilla Firefox';
-            $browser_name      = 'Firefox';
-            $short_name        = 'ff';
-        }
-        elseif ( preg_match( '/Chrome/i',$user_agent ) )
-        {
-            $browser_full_name = 'Google Chrome';
-            $browser_name      = 'Chrome';
-            $short_name        = 'chrome';
-        }
-        elseif ( preg_match( '/Safari/i',$user_agent ) )
-        {
-            $browser_full_name = 'Apple Safari';
-            $browser_name      = 'Safari';
-            $short_name        = 'safari';
-        }
-        elseif ( preg_match( '/MSIE/i',$user_agent ) || preg_match( '/Windows NT/i',$user_agent ) )
-        {
-            $browser_full_name = 'Internet Explorer';
-            $browser_name      = 'MSIE';
-            $short_name        = 'ie';
-        }
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+        $platform   = $this->get_platform( $user_agent );
+        $browser    = $this->get_browser_name( $user_agent );
 
         // finally get the correct version number
-        $known = array( 'Version', $browser_name, 'rv' );
-        if ($browser_name === 'Opera') {
-            $known = array( 'Version', $browser_name, 'OPR', 'rv' );
+        $known = [ 'Version', $browser['name'], 'rv' ];
+        if ($browser['name'] === 'Opera') {
+            $known = [ 'Version', $browser['name'], 'OPR', 'rv' ];
         }
         $pattern = '#(?<browser>' . implode( '|', $known ) . ')[/ |:]+(?<version>[0-9.|a-zA-Z.]*)#';
-        if ( ! preg_match_all( $pattern, $user_agent, $matches ) )
-        {
-            // we have no matching number just continue
-        }
+        preg_match_all( $pattern, $user_agent, $matches );
 
         // see how many we have
         $i = count( $matches['browser'] );
@@ -113,7 +52,7 @@ class ABC_Core {
         {
             //we will have two since we are not using 'other' argument yet
             //see if version is before or after the name
-            if ( strripos( $user_agent, 'Version' ) < strripos( $user_agent, $browser_name ) )
+            if ( strripos( $user_agent, 'Version' ) < strripos( $user_agent, $browser['name'] ) )
             {
                 $version = $matches['version'][0];
             }
@@ -128,44 +67,47 @@ class ABC_Core {
         }
 
         // check if we have a number
-        if ( $version == null || $version == '' || $version == 0 ) { $version = self::BROWSER_UNKNOWN; }
+        if ( $version === null || $version === '' || $version === 0 )
+        {
+            $version = self::UNKNOWN;
+        }
 
-        return array(
+        return [
             'user_agent' => $user_agent,
-            'name'       => $browser_full_name,
-            'short_name' => $short_name,
+            'name'       => $browser['full_name'],
+            'short_name' => $browser['short_name'],
             'version'    => floor($version),
             'platform'   => $platform,
             'pattern'    => $pattern
-        );
+        ];
     }
 
     /**
-     * The wrapper, added to the site footer, that the popup
-     * will be placed in after the ajax load
-     * @return html [echos out the html code needed]
+     * The wrapper, added to the site footer, that the popup will be placed in after the ajax load
+     *
+     * @echo html
      */
     function content_wrapper()
     {
-        echo "<div class='advanced-browser-check' style='display:none;' data-url='".json_encode( array( "abc_url" => admin_url( 'admin-ajax.php' ) ) )."'></div>";
+        echo "<div class='advanced-browser-check' style='display:none;' data-url='".json_encode(
+                [ "abc_url" => admin_url( 'admin-ajax.php' ) ]
+            )."'></div>";
     }
 
     /**
-     * Default settings and settings array used trough out
-     * the plugin
-     * @return array [default settings array]
+     * Default settings and settings array used trough out the plugin
+     *
+     * @return array
      */
     public function default_setting_values()
     {
-        // Add new settings option introduced in version 5 if it does not exists
-        if ( $this->get_current_major_version() >= 5 )
+        // Add new settings option introduced in version 4.4.0 if it does not exists
+        if ( ! empty( $edgeCheck = get_option( 'abc_check' ) ) )
         {
-            if ( !empty($edgeCheck = get_option('abc_check')))
+            if ( ! isset( $edgeCheck['edge'] ) )
             {
-                if ( !isset($edgeCheck['edge'])) {
-                    $edgeCheck['edge'] = '12';
-                    update_option('abc_check', $edgeCheck);
-                }
+                $edgeCheck['edge'] = '12';
+                update_option( 'abc_check', $edgeCheck );
             }
         }
 
@@ -173,44 +115,41 @@ class ABC_Core {
         add_option( 'abc_title', __( 'You are using a web browser not supported by this website!', 'advanced-browser-check' ) );
         add_option( 'abc_message', __( 'You are using a web browser that is not supported by this website. This means that some functionality may not work as intended. This may result in strange behaviors when browsing around. Use or upgrade/install one of the following browsers to take full advantage of this website. - Thank you!', 'advanced-browser-check' ) );
         add_option( 'abc_hide', NULL );
-        add_option( 'abc_show', array(
+        add_option( 'abc_show', [
+            'ie'     => '',
             'edge'   => '',
             'ff'     => 'http://www.mozilla.com/en-US/firefox/all.html',
             'safari' => '',
             'opera'  => '',
             'chrome' => 'https://www.google.com/chrome'
-        ) );
-        add_option( 'abc_check', array(
+        ] );
+        add_option( 'abc_check', [
             'ie'     => '10',
             'ff'     => '25',
             'safari' => '4',
             'opera'  => '17',
             'chrome' => '30',
             'edge'   => '12',
-        ));
+        ] );
         add_option( 'abc_debug', 'off' );
 
-        // Run update function, this is where the plugin version number is update
+        // Update plugin version
         $this->update();
 
-        // Return the settings in array format
-        return array(
+        return [
             'title'         => get_option( 'abc_title' ),
             'msg'           => get_option( 'abc_message' ),
             'hide'          => get_option( 'abc_hide' ),
             'show_browser'  => get_option( 'abc_show' ),
             'check_browser' => get_option( 'abc_check' ),
             'debug'         => get_option( 'abc_debug' )
-        );
+        ];
     }
 
     /**
-    * Default browsers settings. This builds the browser dropdowns on the admin page
-    **/
-    /**
-     * Default browsers settings. This builds the browser
-     * dropdowns on the admin page
-     * @return array [versions of each browser to include]
+     * Default browsers settings. This builds the browser drop downs on the admin page
+     *
+     * @return array
      */
     public function default_browsers()
     {
@@ -219,12 +158,12 @@ class ABC_Core {
         // and 8 older versions as most
 
         return array(
-            'safari' => array(0,3,4,5,6,7,8,9,10,11,12,13),
-            'opera'  => array(0,27,28,29,30,31,32,33,34,35,36,37,38,39,40),
-            'ff'     => array(0,38,39,40,41,42,43,44,45,46,47,48,49,51,52),
-            'chrome' => array(0,43,44,45,46,47,48,49,50,51,52,53,54,55,56),
-            'ie'     => array(0,7,8,9,10,11),
-            'edge'   => array(0,12,13,14,15,16),
+            'safari' => [0,3,4,5,6,7,8,9,10,11,12,13],
+            'opera'  => [0,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
+            'ff'     => [0,38,39,40,41,42,43,44,45,46,47,48,49,51,52],
+            'chrome' => [0,43,44,45,46,47,48,49,50,51,52,53,54,55,56],
+            'ie'     => [0,7,8,9,10,11],
+            'edge'   => [0,12,13,14,15,16]
         );
     }
 
@@ -237,10 +176,10 @@ class ABC_Core {
         wp_enqueue_script( "jquery" );
 
         // jQuery cookie, used to add a cookie so visitors can hide the popup
-        wp_enqueue_script( "apc_jquery_cookie", plugins_url( '/js/jquery.cookie.js', __FILE__ ), array( 'jquery' ) );
+        wp_enqueue_script( "apc_jquery_cookie", plugins_url( '/js/jquery.cookie.js', __FILE__ ), [ 'jquery' ] );
 
         // The ajax request so the plugin works with caching plugins
-        wp_enqueue_script( "abc_script", plugins_url( '/js/script.js', __FILE__ ), array( 'jquery' ) );
+        wp_enqueue_script( "abc_script", plugins_url( '/js/script.js', __FILE__ ), [ 'jquery' ] );
     }
 
     /**
@@ -250,6 +189,105 @@ class ABC_Core {
     {
         // Stylesheet for the popup
         wp_enqueue_style( "abc_style", plugins_url( '/css/style.css', __FILE__ ) );
+    }
+
+    /**
+     * Get browser name details
+     *
+     * @param $user_agent
+     *
+     * @return array
+     */
+    protected function get_browser_name( $user_agent )
+    {
+        // Next get the name of the useragent yes seperately and for good reason
+        if ( preg_match( '/Opera/i',$user_agent ) || preg_match( '/OPR/i',$user_agent ))
+        {
+            return [
+                'full_name'  => 'Opera',
+                'name'       => 'Opera',
+                'short_name' => 'opera'
+            ];
+        }
+        elseif ( preg_match( '/Edge/i',$user_agent ) )
+        {
+            return [
+                'full_name'  => 'Microsoft Edge',
+                'name'       => 'Edge',
+                'short_name' => 'edge'
+            ];
+
+        } elseif ( preg_match( '/Firefox/i',$user_agent ) )
+        {
+            return [
+                'full_name'  => 'Mozilla Firefox',
+                'name'       => 'Firefox',
+                'short_name' => 'ff'
+            ];
+        }
+        elseif ( preg_match( '/Chrome/i',$user_agent ) )
+        {
+            return [
+                'full_name'  => 'Google Chrome',
+                'name'       => 'Chrome',
+                'short_name' => 'chrome'
+            ];
+        }
+        elseif ( preg_match( '/Safari/i',$user_agent ) )
+        {
+            return [
+                'full_name'  => 'Apple Safari',
+                'name'       => 'Safari',
+                'short_name' => 'safari'
+            ];
+        }
+        elseif ( preg_match( '/MSIE/i',$user_agent ) || preg_match( '/Windows NT/i',$user_agent ) )
+        {
+            return [
+                'full_name'  => 'Internet Explorer',
+                'name'       => 'MSIE',
+                'short_name' => 'ie'
+            ];
+        }
+
+        return [
+            'full_name'  => self::UNKNOWN,
+            'name'       => self::UNKNOWN,
+            'short_name' => self::UNKNOWN
+        ];
+    }
+
+    /**
+     * Get users platform (OS)
+     *
+     * @param $user_agent
+     *
+     * @return string
+     */
+    protected function get_platform( $user_agent )
+    {
+        if ( preg_match( '/android/i', $user_agent ) )
+        {
+            return self::PLATFORM_ANDROID;
+        }
+        elseif ( preg_match( '/iphone/i', $user_agent ) || preg_match( '/ipad/i', $user_agent ) || preg_match( '/ipod/i', $user_agent ) )
+        {
+            return self::PLATFORM_IOS;
+        }
+        elseif ( preg_match( '/linux/i', $user_agent ) )
+        {
+            return self::PLATFORM_LINUX;
+        }
+        elseif ( preg_match( '/macintosh|mac os x/i', $user_agent ) )
+        {
+            return self::PLATFORM_MAC;
+        }
+        elseif ( preg_match( '/windows|win32/i', $user_agent ) )
+        {
+            return self::PLATFORM_WINDOWS;
+        }
+
+        return self::UNKNOWN;
     }
 
     /**
@@ -278,15 +316,5 @@ class ABC_Core {
         }
 
         update_option( 'abc_version', ABC_VERSION );
-    }
-
-    /**
-     * Get current major plugin version
-     *
-     * @return  int
-     */
-    protected function get_current_major_version()
-    {
-        return (int) current(explode('.', ABC_VERSION));
     }
 }
