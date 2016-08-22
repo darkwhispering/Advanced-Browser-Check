@@ -34,6 +34,7 @@ Supported languages (Only English language are guaranteed to be up to date!)
 * French
 * German
 * Danish
+* Russian
 
 Missing a language? Want to add it? Fork the plugin from my [Github](https://github.com/darkwhispering/Advanced-Browser-Check), do the translation, do a pull request and I will happily add it.
 
@@ -88,6 +89,7 @@ If you create a new support post, please provide as much info as possible. Like 
 * Fixed issues with detecting the latest versions of the Opera browser correctly.
 * Updated browser versions list.
 * Code cleanup.
+* Added Russian translation, thanks [SnakeU2](https://github.com/SnakeU2)
 * Tested on Wordpress 4.6
 
 = 4.3.0 =
