@@ -2,7 +2,6 @@
 
 class ABC_Core
 {
-
     const UNKNOWN = 'unknown';
 
     const PLATFORM_ANDROID = 'android';
@@ -20,10 +19,10 @@ class ABC_Core
     {
         self::$this;
 
-        add_action( 'init', [ $this, 'default_setting_values' ] ); // Default settings
-        add_action( 'wp_footer', [ $this, 'content_wrapper' ] ); // HTML wrapper
-        add_action( 'wp_enqueue_scripts', [ $this, 'scripts' ] ); // Needed scripts
-        add_action( 'wp_enqueue_scripts', [ $this, 'styles' ] ); // Needed stylesheets
+        add_action( 'init', array( $this, 'default_setting_values' ) ); // Default settings
+        add_action( 'wp_footer', array( $this, 'content_wrapper' ) ); // HTML wrapper
+        add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) ); // Needed scripts
+        add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) ); // Needed stylesheets
     }
 
     /**
@@ -38,9 +37,9 @@ class ABC_Core
         $browser    = $this->get_browser_name( $user_agent );
 
         // finally get the correct version number
-        $known = [ 'Version', $browser['name'], 'rv' ];
+        $known = array( 'Version', $browser['name'], 'rv' );
         if ($browser['name'] === 'Opera') {
-            $known = [ 'Version', $browser['name'], 'OPR', 'rv' ];
+            $known = array( 'Version', $browser['name'], 'OPR', 'rv' );
         }
         $pattern = '#(?<browser>' . implode( '|', $known ) . ')[/ |:]+(?<version>[0-9.|a-zA-Z.]*)#';
         preg_match_all( $pattern, $user_agent, $matches );
@@ -72,14 +71,14 @@ class ABC_Core
             $version = self::UNKNOWN;
         }
 
-        return [
+        return array(
             'user_agent' => $user_agent,
             'name'       => $browser['full_name'],
             'short_name' => $browser['short_name'],
             'version'    => floor($version),
             'platform'   => $platform,
             'pattern'    => $pattern
-        ];
+        );
     }
 
     /**
@@ -90,7 +89,7 @@ class ABC_Core
     function content_wrapper()
     {
         echo "<div class='advanced-browser-check' style='display:none;' data-url='".json_encode(
-                [ "abc_url" => admin_url( 'admin-ajax.php' ) ]
+                array( "abc_url" => admin_url( 'admin-ajax.php' ) )
             )."'></div>";
     }
 
@@ -101,49 +100,47 @@ class ABC_Core
      */
     public function default_setting_values()
     {
-        // Add new settings option introduced in version 4.4.0 if it does not exists
-        if ( ! empty( $edgeCheck = get_option( 'abc_check' ) ) )
-        {
-            if ( ! isset( $edgeCheck['edge'] ) )
-            {
-                $edgeCheck['edge'] = '12';
-                update_option( 'abc_check', $edgeCheck );
-            }
-        }
-
         // Default settings values
         add_option( 'abc_title', __( 'You are using a web browser not supported by this website!', 'advanced-browser-check' ) );
         add_option( 'abc_message', __( 'You are using a web browser that is not supported by this website. This means that some functionality may not work as intended. This may result in strange behaviors when browsing around. Use or upgrade/install one of the following browsers to take full advantage of this website. - Thank you!', 'advanced-browser-check' ) );
         add_option( 'abc_hide', NULL );
-        add_option( 'abc_show', [
+        add_option( 'abc_show', array(
             'ie'     => '',
             'edge'   => '',
             'ff'     => 'http://www.mozilla.com/en-US/firefox/all.html',
             'safari' => '',
             'opera'  => '',
             'chrome' => 'https://www.google.com/chrome'
-        ] );
-        add_option( 'abc_check', [
-            'ie'     => '10',
-            'ff'     => '25',
+        ) );
+        add_option( 'abc_check', array(
+            'ie'     => '11',
+            'ff'     => '0',
             'safari' => '4',
-            'opera'  => '17',
-            'chrome' => '30',
-            'edge'   => '12',
-        ] );
+            'opera'  => '27',
+            'chrome' => '0',
+            'edge'   => '0',
+        ) );
         add_option( 'abc_debug', 'off' );
+
+        // Add new settings option introduced in version 4.4.0 if it does not exists
+        $check = get_option( 'abc_check' );
+        if ( ! isset( $check['edge'] ) )
+        {
+            $check['edge'] = '';
+            update_option( 'abc_check', $check );
+        }
 
         // Update plugin version
         $this->update();
 
-        return [
+        return array(
             'title'         => get_option( 'abc_title' ),
             'msg'           => get_option( 'abc_message' ),
             'hide'          => get_option( 'abc_hide' ),
             'show_browser'  => get_option( 'abc_show' ),
             'check_browser' => get_option( 'abc_check' ),
             'debug'         => get_option( 'abc_debug' )
-        ];
+        );
     }
 
     /**
@@ -158,12 +155,12 @@ class ABC_Core
         // and 8 older versions as most
 
         return array(
-            'safari' => [0,3,4,5,6,7,8,9,10,11,12,13],
-            'opera'  => [0,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
-            'ff'     => [0,38,39,40,41,42,43,44,45,46,47,48,49,51,52],
-            'chrome' => [0,43,44,45,46,47,48,49,50,51,52,53,54,55,56],
-            'ie'     => [0,7,8,9,10,11],
-            'edge'   => [0,12,13,14,15,16]
+            'safari' => array(0,3,4,5,6,7,8,9,10,11,12,13),
+            'opera'  => array(0,27,28,29,30,31,32,33,34,35,36,37,38,39,40),
+            'ff'     => array(0,38,39,40,41,42,43,44,45,46,47,48,49,51,52),
+            'chrome' => array(0,43,44,45,46,47,48,49,50,51,52,53,54,55,56),
+            'ie'     => array(0,7,8,9,10,11),
+            'edge'   => array(0,12,13,14,15,16)
         );
     }
 
@@ -176,10 +173,10 @@ class ABC_Core
         wp_enqueue_script( "jquery" );
 
         // jQuery cookie, used to add a cookie so visitors can hide the popup
-        wp_enqueue_script( "apc_jquery_cookie", plugins_url( '/js/jquery.cookie.js', __FILE__ ), [ 'jquery' ] );
+        wp_enqueue_script( "apc_jquery_cookie", plugins_url( '/js/jquery.cookie.js', __FILE__ ), array( 'jquery' ) );
 
         // The ajax request so the plugin works with caching plugins
-        wp_enqueue_script( "abc_script", plugins_url( '/js/script.js', __FILE__ ), [ 'jquery' ] );
+        wp_enqueue_script( "abc_script", plugins_url( '/js/script.js', __FILE__ ), array( 'jquery' ) );
     }
 
     /**
@@ -203,58 +200,58 @@ class ABC_Core
         // Next get the name of the useragent yes seperately and for good reason
         if ( preg_match( '/Opera/i',$user_agent ) || preg_match( '/OPR/i',$user_agent ))
         {
-            return [
+            return array(
                 'full_name'  => 'Opera',
                 'name'       => 'Opera',
                 'short_name' => 'opera'
-            ];
+            );
         }
         elseif ( preg_match( '/Edge/i',$user_agent ) )
         {
-            return [
+            return array(
                 'full_name'  => 'Microsoft Edge',
                 'name'       => 'Edge',
                 'short_name' => 'edge'
-            ];
+            );
 
         } elseif ( preg_match( '/Firefox/i',$user_agent ) )
         {
-            return [
+            return array(
                 'full_name'  => 'Mozilla Firefox',
                 'name'       => 'Firefox',
                 'short_name' => 'ff'
-            ];
+            );
         }
         elseif ( preg_match( '/Chrome/i',$user_agent ) )
         {
-            return [
+            return array(
                 'full_name'  => 'Google Chrome',
                 'name'       => 'Chrome',
                 'short_name' => 'chrome'
-            ];
+            );
         }
         elseif ( preg_match( '/Safari/i',$user_agent ) )
         {
-            return [
+            return array(
                 'full_name'  => 'Apple Safari',
                 'name'       => 'Safari',
                 'short_name' => 'safari'
-            ];
+            );
         }
         elseif ( preg_match( '/MSIE/i',$user_agent ) || preg_match( '/Windows NT/i',$user_agent ) )
         {
-            return [
+            return array(
                 'full_name'  => 'Internet Explorer',
                 'name'       => 'MSIE',
                 'short_name' => 'ie'
-            ];
+            );
         }
 
-        return [
+        return array(
             'full_name'  => self::UNKNOWN,
             'name'       => self::UNKNOWN,
             'short_name' => self::UNKNOWN
-        ];
+        );
     }
 
     /**

@@ -5,10 +5,10 @@ Plugin URI: http://darkwhispering.com/wp-plugins/advanced-browser-check
 Description: Tell IE users to change browser? Or is your site for Chrome only? Now you can choose what browsers should trigger a warning popup or not on your site.
 Author: Mattias Hedman
 Author URI: http://www.darkwhispering.com
-Version: 4.4.0
+Version: 4.4.1
 */
 
-define( 'ABC_VERSION', '4.4.0' );
+define( 'ABC_VERSION', '4.4.1' );
 
 if ( ! defined('ABC_DIR_PATH' ) )
 {

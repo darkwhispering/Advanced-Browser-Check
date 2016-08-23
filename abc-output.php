@@ -58,7 +58,7 @@ class ABC_Output extends ABC_Core
      *
      * @return string
      */
-    private function build_html( $show_browsers = [], $old_ie = '', $user_browser = [], $debug = false )
+    private function build_html( $show_browsers = array(), $old_ie = '', $user_browser = array(), $debug = false )
     {
         $abc_options = $this->default_setting_values();
         $title       = $abc_options['title'];
