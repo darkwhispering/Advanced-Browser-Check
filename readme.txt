@@ -5,6 +5,8 @@ Tags: firefox, chrome, opera, safari, internet explorer, egde, ie6, ie7, ie8, ie
 Requires at least: 3.0.0
 Tested up to: 4.6.0
 Stable tag: 4.4.1
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
 Tell IE users to change browser? Or is your site for Chrome only? Now you can choose what browsers should trigger a warning popup or not on your site.
 
@@ -207,3 +209,8 @@ If you create a new support post, please provide as much info as possible. Like 
 
 = 1.0.0 =
 * Initial release
+
+== Upgrade Notice ==
+= 4.4.1 =
+Upgrade to not display a parsing error message when activating this plugin.
+PHP 5.4 is no longer required to install this plugin.
