@@ -45,8 +45,17 @@ class ABC_Output extends ABC_Core
                     return $this->build_html( $show_browsers, $old_ie, $user_browser );
                 }
             }
+            return $this->build_success();
         }
     }
+    
+    /**
+     * Return the response for a valid browser
+     * @return string
+     */
+     private function build_success(){
+       	return "success";
+     }
 
     /**
      * Build the HTML for the popup

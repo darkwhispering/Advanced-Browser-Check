@@ -13,7 +13,10 @@ jQuery(document).ready(function($){
 			$.post(url.abc_url, ajax_action, function(response) {
 				
 				if(response) {
-
+					// If the browser is valid
+					if(response=="success"){
+						$('.advanced-browser-check').hide();
+					}
 					// We will need to add a css class to the body
 					// if we detect IE 6 for combability css to load
 					// properly
